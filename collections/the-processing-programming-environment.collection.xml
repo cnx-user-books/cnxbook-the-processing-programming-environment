@@ -1,0 +1,49 @@
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" type="Course">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+  <md:content-id>col11492</md:content-id>
+  <md:title>The Processing Programming Environment</md:title>
+  
+  
+  <md:license url="http://creativecommons.org/licenses/by/3.0/"/>
+  <md:language>en</md:language>
+
+  
+
+  
+  
+  
+  
+  
+
+  <md:uuid>77746fc1-f597-4702-90b3-e49de326e80e</md:uuid>
+<md:slug>the-processing-programming-environment</md:slug>
+</metadata>
+
+  <col:content>
+    
+      <col:module document="m45796"/>
+        
+      
+    
+    
+      <col:module document="m45798"/>
+        
+      
+    
+    
+      <col:module document="m45799"/>
+        
+      
+    
+    
+      <col:module document="m45806"/>
+        
+      
+    
+    
+      <col:module document="m45810"/>
+        
+      
+    
+  </col:content>
+</col:collection>

@@ -1,0 +1,6159 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Pr0110-Anatomy of the Processing Framework</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45798</md:content-id>
+  <md:title>Pr0110-Anatomy of the Processing Framework</md:title>
+  <md:abstract>The purpose of this module is to explore and explain the anatomy of the Processing framework.</md:abstract>
+  <md:uuid>70a61e28-f25f-4370-87f7-9ab5fcaa63f6</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Images">
+
+Images
+
+</link>
+
+
+</item>
+
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="A_software_framework">
+
+A software framework
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+			
+
+<item id="li1007">
+<link id="a1007" target-id="Inversion_of_control">
+
+Inversion of control
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1008">
+<link id="a1008" target-id="Create_the_body_of_a_class">
+
+Create the body of a class
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1009">
+<link id="a1009" target-id="Default_behavior">
+
+Default behavior
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1010">
+<link id="a1010" target-id="Extensibility">
+
+Extensibility
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Non-modifiable_framework_code">
+
+Non-modifiable framework code
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Overall_description_of_the_framework">
+
+Overall behavior of 
+		the Processing framework
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1013">
+<link id="a1013" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="A_subclass_of_PApplet">
+
+A subclass of PApplet
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1015" target-id="Understanding_the_anatomy_of_the_framework">
+
+Understanding the anatomy of the framework
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="The_draw_method">
+
+The draw method
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1017" target-id="Code_in_the_Cars_class">
+
+Code in the Cars class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1018" target-id="Lets_talk_about_color">
+
+Let's talk about color
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1019" target-id="Constructor_for_the_Car_class">
+
+Constructor for the Car 
+		class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1020" target-id="The_draw_method_of_the_Cars_class">
+
+The draw method of the 
+		Cars class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1021" target-id="The_display_method_of_the_Car_class">
+
+The display method of the Car class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1022" target-id="The_drive_method_of_the_Car_class">
+
+The drive method of the 
+		Car class
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1023" target-id="Putting_it_all_together">
+
+Putting it all together
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1024">
+<link id="a1024" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1025">
+<link id="a1025" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1026">
+<link id="a1026" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed to teach you about 
+	the 
+
+<link id="a1027" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ open source programming environment.
+
+</para>
+
+
+
+
+<para id="p1001">
+ Processing is a Java-based OOP programming environment for people who want to create images, animations, and interactions.
+
+</para>
+
+
+
+
+<para id="p1002">
+The purpose of this module is to explore and explain the anatomy of the 
+Processing framework by dissecting and explaining an animated sketch.
+
+</para>
+
+
+
+
+<para id="p1003">
+Click 
+
+<link id="a1028" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch in your HTML 5 compatible browser.
+
+</para>
+
+
+
+
+<para id="p1004">
+Acknowledgement: The sketch that I will explain in this module is almost an exact copy of the 
+sketch presented in 
+
+<link id="a1029" url="http://processing.org/learning/objects/">
+
+Object Oriented Programming
+
+</link>
+
+ 
+by Daniel Shiffman. I recommend that you take a look at what Shiffman has to say 
+about this sketch as he develops it from a non-OO syntax to an OO syntax.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the images 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Images" effect="bold">
+
+Images
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1006" list-type="bulleted">
+
+		
+
+<item id="li1027">
+<link id="a1030" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. Default display window.
+
+</item>
+
+
+		
+
+<item id="li1028">
+<link id="a1031" target-id="Image_2">
+
+Image 2
+
+</link>
+
+. The PDE. 
+
+</item>
+
+
+		
+
+<item id="li1029">
+<link id="a1032" target-id="Image_3">
+
+Image 3
+
+</link>
+
+. Screen shot of the sketch during execution.
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1030">
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Code for the class named Car. 
+
+</item>
+
+
+		
+
+<item id="li1031">
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Code for the class named Cars. 
+
+</item>
+
+
+		
+
+<item id="li1032">
+<link id="a1035" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of the Car class. 
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1036" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. The draw method of the Cars class
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1037" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. The display method of the Car class
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1038" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. The drive method of the Car class.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+<emphasis id="strong1000" effect="bold">
+What you have learned
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1007">
+In the previous module, you learned how to download and install the 
+Processing Development Environment 
+
+<emphasis id="em1000" effect="italics">
+(PDE)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1008">
+You also learned how to create an animated Processing sketch that can be run 
+in any of three ways:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1036">
+Run directly from the PDE.
+
+</item>
+
+
+	
+
+<item id="li1037">
+Run in JavaScript mode.
+
+</item>
+
+
+	
+
+<item id="li1038">
+Export and run as an application.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+<emphasis id="strong1001" effect="bold">
+What you will learn
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1010">
+In this module, you will learn about the structural anatomy of the 
+Processing framework.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+There's a good chance that your Java programming background is restricted to 
+Java applications, 
+
+<emphasis id="em1001" effect="italics">
+(which always have a 
+
+<emphasis id="strong1002" effect="bold">
+main
+
+</emphasis>
+ method)
+
+</emphasis>
+ 
+or Java applets, 
+
+<emphasis id="em1002" effect="italics">
+(which don't have a 
+
+<emphasis id="strong1003" effect="bold">
+main
+
+</emphasis>
+ method but do have 
+something similar)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1012">
+You may have noticed that the code in the previous module did not expose a
+
+
+<emphasis id="strong1004" effect="bold">
+main
+
+</emphasis>
+ method or anything similar to a 
+
+<emphasis id="strong1005" effect="bold">
+main
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="A_software_framework" effect="bold">
+
+A software framework
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1013">
+The 
+
+<emphasis id="em1003" effect="italics">
+Processing Development Environment
+
+</emphasis>
+ is really a software framework. What 
+do I mean by that? Here is part of what
+
+
+<link id="a1039" url="http://en.wikipedia.org/wiki/Software_framework">
+
+Wikipedia
+
+</link>
+
+ has to 
+say about a software framework: 
+
+</para>
+
+
+
+
+<para id="p1014">
+<emphasis id="em1004" effect="italics">
+A software framework, in computer programming, is an abstraction in 
+which common code providing generic functionality can be selectively 
+overridden or specialized by user code providing specific functionality.
+
+
+</emphasis>
+
+
+
+</para>
+
+
+
+
+<para id="p1015">
+<emphasis id="em1005" effect="italics">
+Frameworks are a special case of software libraries in that they are reusable 
+abstractions of code wrapped in a well-defined API, yet they contain some key 
+distinguishing features that separate them from normal libraries. 
+
+</emphasis>
+ 
+
+</para>
+
+
+
+
+<para id="p1016">
+<emphasis id="em1006" effect="italics">
+Software frameworks have these distinguishing features that separate them 
+from libraries or normal user applications:
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1039">
+<emphasis id="strong1006" effect="bold">
+<emphasis id="em1007" effect="italics">
+inversion of control
+
+</emphasis>
+</emphasis>
+<emphasis id="em1008" effect="italics">
+ - In a framework, unlike in 
+	libraries or normal user applications, the overall program's flow of control 
+	is not dictated by the caller, but by the framework. 
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1040">
+<emphasis id="strong1007" effect="bold">
+<emphasis id="em1009" effect="italics">
+default behavior
+
+</emphasis>
+</emphasis>
+<emphasis id="em1010" effect="italics">
+ - A framework has a default behavior. 
+	This default behavior must actually be some useful behavior and not a series 
+	of no-ops. 
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1041">
+<emphasis id="strong1008" effect="bold">
+<emphasis id="em1011" effect="italics">
+extensibility
+
+</emphasis>
+</emphasis>
+<emphasis id="em1012" effect="italics">
+ - A framework can be extended by the user 
+	by selective overriding of framework code in order to provide specific 
+	functionality 
+
+</emphasis>
+ 
+
+</item>
+
+
+	
+
+<item id="li1042">
+<emphasis id="strong1009" effect="bold">
+<emphasis id="em1013" effect="italics">
+non-modifiable framework code
+
+</emphasis>
+</emphasis>
+<emphasis id="em1014" effect="italics">
+ - The framework code, in 
+	general should not normally be modified by the user. Users can extend the 
+	framework, but normally should not modify its code.
+
+</emphasis>
+ 
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1017">
+In short, a software framework is a computer program that helps you to write computer 
+programs. 
+
+</para>
+
+
+
+
+<para id="p1018">
+The Processing PDE fits all of these characteristics of a framework.
+
+</para>
+
+
+	
+
+<para id="p1019">
+</para>
+
+
+	
+
+<section id="h31002">
+<title>
+<emphasis id="Inversion_of_control" effect="bold">
+
+Inversion of control
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+By default, the overall flow of control of a Processing sketch is beyond the 
+control of the programmer. When the sketch starts running, the 
+
+<emphasis id="strong1010" effect="bold">
+setup
+
+</emphasis>
+ 
+method will be called once and 
+
+<emphasis id="em1015" effect="italics">
+(by default)
+
+</emphasis>
+ the 
+
+<emphasis id="strong1011" effect="bold">
+draw
+
+</emphasis>
+ method will be called 
+repeatedly at a default rate of 60 calls per second.
+
+</para>
+
+
+
+
+<para id="p1021">
+A small window will be displayed in the default Java display mode. If you 
+haven't overridden the
+
+<emphasis id="strong1012" effect="bold">
+ draw
+
+</emphasis>
+ method to control the contents of 
+that window, it will look something like that shown in 
+
+<emphasis id="strong1013" effect="bold">
+Image 1
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_1" effect="bold">
+</emphasis>
+Image 1. Default display window.
+</title>
+
+
+
+
+
+<media id="media1000" alt="Default display window" display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/pr0110a.jpg" width="154" height="169"/>
+</media>
+
+
+
+
+<caption>Image 1. Default display window.</caption>
+</figure>
+
+
+
+
+
+
+
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Create_the_body_of_a_class" effect="bold">
+
+Create the body of a class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+<link id="a1040" target-id="Image_2">
+
+Image 2
+
+</link>
+
+ shows a screen shot of the PDE with program 
+code showing in the leftmost tab.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_2" effect="bold">
+</emphasis>
+Image 2. The PDE.
+</title>
+
+
+
+
+
+<media id="media1001" alt="The PDE." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/pr0110b.jpg" width="501" height="657"/>
+</media>
+
+
+
+
+<caption>Image 2. The PDE.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1023">
+When you create a new sketch in the PDE and enter 
+code in the leftmost tab, you are actually writing the body of a new class with 
+a class name that matches the name of the tab. The code that you see in
+
+
+<link id="a1041" target-id="Image_2">
+
+Image 2
+
+</link>
+
+, for example, constitutes the body of a new class 
+named 
+
+<emphasis id="strong1014" effect="bold">
+Cars
+
+</emphasis>
+. 
+
+</para>
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="Override_setup_and_draw_methods" effect="bold">
+
+Override setup and draw methods
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+In general, you need to override the methods named 
+
+<emphasis id="strong1015" effect="bold">
+setup
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1016" effect="bold">
+draw
+
+</emphasis>
+ in the body of this class. It is the code that you write 
+in these two overridden methods that controls the behavior of the sketch.
+
+</para>
+
+
+
+
+<para id="p1025">
+The 
+
+<emphasis id="strong1017" effect="bold">
+setup
+
+</emphasis>
+ method will be called once when you click the
+
+
+<emphasis id="strong1018" effect="bold">
+run
+
+</emphasis>
+ button. You should place any code that needs to be executed 
+to initialize the state of the sketch in this method. Often this code will 
+initialize variables, instantiate new objects, etc.
+
+</para>
+
+
+
+
+<para id="p1026">
+After that, by default, the 
+
+<emphasis id="strong1019" effect="bold">
+draw
+
+</emphasis>
+ method will be called 
+repeatedly until you terminate execution of the sketch. You need to write code 
+in the 
+
+<emphasis id="strong1020" effect="bold">
+draw
+
+</emphasis>
+ method that controls the ongoing behavior of the 
+sketch. Often, this code will call methods on existing objects, modify the 
+contents of variables, instantiate and call methods on new objects, etc.
+
+</para>
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Default_behavior" effect="bold">
+
+Default behavior
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+As I mentioned above, the default behavior of the sketch is to call the
+
+
+<emphasis id="strong1021" effect="bold">
+setup
+
+</emphasis>
+ method once and to repeatedly call the 
+
+<emphasis id="strong1022" effect="bold">
+draw
+
+</emphasis>
+ 
+method until the sketch is terminated, regardless of whether or not the 
+
+<emphasis id="strong1023" effect="bold">
+
+setup
+
+</emphasis>
+ and 
+
+<emphasis id="strong1024" effect="bold">
+draw
+
+</emphasis>
+ methods are overridden. If these 
+methods are not overridden, the sketch will produce an output similar to that 
+shown in 
+
+<link id="a1042" target-id="Image_1">
+
+Image 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="Extensibility" effect="bold">
+
+Extensibility
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+As you will see later, for the sketch shown in 
+
+<link id="a1043" target-id="Image_2">
+
+Image 2
+
+</link>
+
+, 
+the framework has been extended by overriding the 
+
+<emphasis id="strong1025" effect="bold">
+setup
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1026" effect="bold">
+draw
+
+</emphasis>
+ methods, and by defining a new class named 
+
+<emphasis id="strong1027" effect="bold">
+Car
+
+</emphasis>
+. 
+The code for the class named 
+
+<emphasis id="strong1028" effect="bold">
+Car
+
+</emphasis>
+ is on the hidden tab named 
+
+
+<emphasis id="strong1029" effect="bold">
+Car
+
+</emphasis>
+ in
+
+
+<link id="a1044" target-id="Image_2">
+
+Image 2
+
+</link>
+
+ and is also shown in 
+
+<link id="a1045" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Listing 1. Code for the  				class named Car.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1000" display="block">
+class Car { 
+  color c;
+  float xpos;
+  float ypos;
+  float xspeed;
+
+  // The Constructor is defined with arguments.
+  Car(color tempC, 
+      float tempXpos, 
+      float tempYpos, 
+      float tempXspeed) { 
+    c = tempC;
+    xpos = tempXpos;
+    ypos = tempYpos;
+    xspeed = tempXspeed;
+  }
+
+  void display() {
+    stroke(0);
+    fill(c);
+    rectMode(CENTER);
+    rect(xpos,ypos,20,10);
+  }
+
+  void drive() {
+    xpos = xpos + xspeed;
+    if (xpos &gt; width) {
+      xpos = 0;
+    }
+  }
+}
+</code>
+
+
+
+				
+
+<caption>Listing 1. Code for the  				class named Car.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Non-modifiable_framework_code" effect="bold">
+
+Non-modifiable framework code
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1029">
+While we can extend the Processing framework by overriding methods, defining 
+new methods, defining new classes, etc., we cannot, by default, modify the 
+framework code. 
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Overall_description_of_the_framework" effect="bold">
+
+Overall behavior of the 
+Processing framework
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+Without seeing the source code, it appears that when we click the 
+
+<emphasis id="strong1030" effect="bold">
+Run
+
+</emphasis>
+ 
+button in Java mode, the Processing framework:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1043">
+Instantiates a new object of a class that we define in the leftmost tab 
+	of the PDE.
+
+</item>
+
+
+	
+
+<item id="li1044">
+Calls the method named 
+
+<emphasis id="strong1031" effect="bold">
+setup
+
+</emphasis>
+, 
+
+<emphasis id="em1016" effect="italics">
+(which may or may not 
+	be overridden in the new class)
+
+</emphasis>
+ belonging to that object once and only 
+	once.
+
+</item>
+
+
+	
+
+<item id="li1045">
+Calls the method named 
+
+<emphasis id="strong1032" effect="bold">
+draw
+
+</emphasis>
+, 
+
+<emphasis id="em1017" effect="italics">
+(which may or may not 
+	be overridden in the new class)
+
+</emphasis>
+ belonging to that object repeatedly at 
+	a default rate of 60 calls per second until the sketch is terminated.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1031">
+We can 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1046">
+control how often the 
+
+<emphasis id="strong1033" effect="bold">
+draw
+
+</emphasis>
+ method is executed by calling the
+	
+
+<emphasis id="strong1034" effect="bold">
+frameRate
+
+</emphasis>
+ method, 
+
+</item>
+
+
+	
+
+<item id="li1047">
+prevent the 
+
+<emphasis id="strong1035" effect="bold">
+draw
+
+</emphasis>
+ method from being executed repeatedly by calling the 
+
+<emphasis id="strong1036" effect="bold">
+noLoop
+
+</emphasis>
+ 
+	method, 
+
+</item>
+
+
+	
+
+<item id="li1048">
+cause the 
+
+<emphasis id="strong1037" effect="bold">
+draw
+
+</emphasis>
+ method to be executed repeatedly by calling the 
+
+<emphasis id="strong1038" effect="bold">
+loop
+
+</emphasis>
+ 
+method
+
+</item>
+
+
+	
+
+<item id="li1049">
+cause the 
+
+<emphasis id="strong1039" effect="bold">
+draw
+
+</emphasis>
+ method to be executed once by calling the 
+
+<emphasis id="strong1040" effect="bold">
+redraw
+
+</emphasis>
+ 
+	method.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1032">
+Programs or sketches that we write to run under the Processing framework must 
+be compatible with the behavior described above.
+
+</para>
+
+
+	
+
+	
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1033">
+Now it's time to put the theory aside and take a look at an actual 
+	sketch.
+
+</para>
+
+
+
+
+<para id="p1034">
+<link id="a1046" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the definition of a class named
+
+
+<emphasis id="strong1041" effect="bold">
+Car
+
+</emphasis>
+. This class is defined on the hidden tab in
+
+
+<link id="a1047" target-id="Image_2">
+
+Image 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1035">
+<link id="a1048" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ shows the definition of the class named 
+
+
+<emphasis id="strong1042" effect="bold">
+Cars
+
+</emphasis>
+ in the leftmost tab of 
+
+<link id="a1049" target-id="Image_2">
+
+Image 2
+
+</link>
+
+. I am repeating it 
+here so that you can copy and paste it into your PDE.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Listing 2. Code for the class named Cars.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1001" display="block">
+Car myCar1;//instance variables
+Car myCar2;
+
+void setup() {
+  size(200,200);
+  myCar1 = new Car(color(255,0,0),0,100,2); 
+  myCar2 = new Car(color(0,0,255),0,10,1);
+}//end setup method
+
+void draw() {
+  background(255);
+  myCar1.drive();
+  myCar1.display();
+  myCar2.drive();
+  myCar2.display();
+}//end draw method</code>
+
+
+
+				
+
+<caption>Listing 2. Code for the class named Cars.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<section id="h21003">
+<title>
+<emphasis id="A_subclass_of_PApplet" effect="bold">
+
+A subclass of PApplet
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+You might think of the class that is defined in 
+
+<link id="a1050" target-id="Listing_2">
+
+
+	Listing 2
+
+</link>
+
+ as the driver class. You will see later that it is a subclass 
+of the Processing class named 
+
+<emphasis id="strong1043" effect="bold">
+PApplet
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<section id="h31008">
+<title>
+<emphasis id="The_name_of_the_new_class" effect="bold">
+
+The name of the new class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+When we create a new sketch, this class has a default name something like 
+
+<emphasis id="strong1044" effect="bold">
+sketch_130223a
+
+</emphasis>
+.. We can change the name of the class when we 
+select 
+
+<emphasis id="strong1045" effect="bold">
+Save
+
+</emphasis>
+ or 
+
+<emphasis id="strong1046" effect="bold">
+Save As...
+
+</emphasis>
+ from the 
+
+<emphasis id="strong1047" effect="bold">
+File
+
+</emphasis>
+ menu 
+of the PDE. 
+
+</para>
+
+
+
+
+<para id="p1038">
+Saving the sketch causes a sketchbook folder to be 
+created containing a file with a name like 
+
+<emphasis id="strong1048" effect="bold">
+sketch_130223a.pde
+
+</emphasis>
+, 
+or whatever name we specify. The name of the sketchbook folder is the same as the name 
+of the class. 
+
+</para>
+
+
+
+
+<para id="p1039">
+For the case of 
+
+<link id="a1051" target-id="Image_2">
+
+Image 2
+
+</link>
+
+, the sketchbook folder is named 
+
+<emphasis id="strong1049" effect="bold">
+
+Cars
+
+</emphasis>
+ and the file is named 
+
+<emphasis id="strong1050" effect="bold">
+Cars.pde
+
+</emphasis>
+. 
+
+<emphasis id="em1018" effect="italics">
+(The file 
+named Cars.pde is simply a text file containing Java source code. If you were 
+working outside the PDE, you could name it Cars.java.)
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Inherited_methods" effect="bold">
+
+Inherited methods
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1040">
+We can see from 
+
+<link id="a1052" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ that our new class inherits a method named 
+
+<emphasis id="strong1051" effect="bold">
+setup
+
+</emphasis>
+, 
+	a method named 
+
+<emphasis id="strong1052" effect="bold">
+draw
+
+</emphasis>
+, and a method 
+	named 
+
+<emphasis id="strong1053" effect="bold">
+size
+
+</emphasis>
+. The code in 
+
+<link id="a1053" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ overrides 
+the 
+
+<emphasis id="strong1054" effect="bold">
+setup
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1055" effect="bold">
+draw
+
+</emphasis>
+ methods and calls the 
+
+<emphasis id="strong1056" effect="bold">
+size
+
+</emphasis>
+ method without overriding it.
+
+</para>
+
+
+
+
+<para id="p1041">
+The class named 
+
+<emphasis id="strong1057" effect="bold">
+PApplet
+
+</emphasis>
+ defines a huge number of methods. 
+Those methods can be called from within our class named 
+
+<emphasis id="strong1058" effect="bold">
+Cars 
+
+</emphasis>
+
+
+
+<emphasis id="em1019" effect="italics">
+(by novice programmers)
+
+</emphasis>
+ without knowledge of anything related to 
+object-oriented programming. They look pretty-much like global function calls 
+from the dark ages.
+
+</para>
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="A_function_library" effect="bold">
+
+A function library
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1042">
+In effect, the authors of Processing have created a huge function library,
+
+
+<emphasis id="em1020" effect="italics">
+(reminiscent of the function libraries of the dark ages of Pascal and C)
+
+</emphasis>
+. 
+Novice programmers can use that library to create sketches using a procedural 
+programming style 
+
+<emphasis id="em1021" effect="italics">
+(as opposed to an object-oriented programming style)
+
+</emphasis>
+.. 
+
+</para>
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="A_tricycle_and_a_bicycle" effect="bold">
+
+A tricycle and a bicycle
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1043">
+While I don't think this is a good way to teach people how to program, I am 
+impressed that the authors of Processing were able to pull it off.
+
+</para>
+
+
+
+
+<para id="p1044">
+In my opinion, learning to program this way is like trying to learn how to 
+ride a bicycle by riding a tricycle. 
+
+<emphasis id="em1022" effect="italics">
+(I'm not talking about a bicycle with 
+removable training wheels. I'm talking about a vehicle with three fixed wheels.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1045">
+As long as that tricycle 
+
+<emphasis id="em1023" effect="italics">
+(the PDE)
+
+</emphasis>
+ 
+will get you where you need to go, everything is okay. However, without special 
+effort on your part, you will be 
+ill-equipped to put the PDE aside and ride the bicycle 
+
+<emphasis id="em1024" effect="italics">
+(write 
+object-oriented code
+
+</emphasis>
+) if this is how you learn to program.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21004">
+<title>
+<emphasis id="Understanding_the_anatomy_of_the_framework" effect="bold">
+
+Understanding the 
+anatomy of the framework
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+That having been said, by understanding the anatomy of the framework, it is 
+possible for novices and experienced programmers alike 
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1050">
+to think in 
+object-oriented terms, 
+
+</item>
+
+
+	
+
+<item id="li1051">
+to write serious object-oriented programs using the 
+PDE, and 
+
+</item>
+
+
+	
+
+<item id="li1052">
+to take advantage of the many
+	
+
+<link id="a1054" url="http://processing.org/reference/libraries/">
+
+libraries
+
+</link>
+
+ 
+supported by Processing.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1047">
+The ability to effectively use multiple libraries is one of the hallmarks of a successful 
+OO programmer.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_draw_method" effect="bold">
+
+The draw method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1048">
+The description of the 
+
+<emphasis id="strong1059" effect="bold">
+draw
+
+</emphasis>
+ method 
+
+<emphasis id="em1025" effect="italics">
+(that is inherited 
+from the 
+
+<emphasis id="strong1060" effect="bold">
+PApplet
+
+</emphasis>
+ class)
+
+</emphasis>
+ reads partially as 
+follows:
+
+</para>
+
+
+
+
+<para id="p1049">
+<emphasis id="em1026" effect="italics">
+"Called directly after setup() and continuously executes the lines of code contained inside its block until the program is stopped or noLoop() is called. 
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1050">
+<emphasis id="em1027" effect="italics">
+The draw() function is called automatically and should never be called explicitly. 
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1051">
+<emphasis id="em1028" effect="italics">
+It should always be controlled with noLoop(), redraw() and loop(). 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1052">
+<emphasis id="em1029" effect="italics">
+After noLoop() stops the code in draw() from executing, redraw() causes the code inside draw() to execute once and loop() will cause the code inside draw() to execute continuously again. 
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1053">
+<emphasis id="em1030" effect="italics">
+The number of times draw() executes in each second may be controlled with frameRate() function. 
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1054">
+<emphasis id="em1031" effect="italics">
+There can only be one draw() function for each sketch and draw() must exist if you want the code to run continuously or to process events such as mousePressed(). Sometimes, you might have an empty call to draw() in your program 
+..."
+
+</emphasis>
+</para>
+
+
+
+
+<section id="h31012">
+<title>
+<emphasis id="Default_behavior_of_the_framework" effect="bold">
+
+Default behavior of the 
+framework
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1055">
+We know that the default behavior of the framework 
+is to display a window on the screen similar to 
+
+<link id="a1055" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ 
+if we don't override the 
+
+<emphasis id="strong1061" effect="bold">
+draw
+
+</emphasis>
+ method. 
+
+</para>
+
+
+
+
+<para id="p1056">
+The same thing happens if we do override the 
+
+<emphasis id="strong1062" effect="bold">
+draw
+
+</emphasis>
+ method but 
+leave the body empty. Therefore, the physical creation of the display window is 
+being accomplished in the framework by code outside the 
+
+<emphasis id="strong1063" effect="bold">
+draw
+
+</emphasis>
+ 
+method. The 
+
+<emphasis id="strong1064" effect="bold">
+draw
+
+</emphasis>
+ method simply controls the contents of the 
+display window.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21006">
+<title>
+<emphasis id="Code_in_the_Cars_class" effect="bold">
+
+Code in the Cars class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h31013">
+<title>
+<emphasis id="Instance_variables_of_type_Car" effect="bold">
+
+Instance variables of type Car
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+The code in the 
+
+<emphasis id="strong1065" effect="bold">
+Cars
+
+</emphasis>
+ class 
+
+<emphasis id="em1032" effect="italics">
+(see 
+
+<link id="a1056" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+)
+
+</emphasis>
+ begins by declaring 
+two instance variables of the class named 
+
+<emphasis id="strong1066" effect="bold">
+Car
+
+</emphasis>
+. By default, 
+these two instance variables are initialized to null, meaning that they don't 
+contain references to objects.
+
+</para>
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="The_inherited_size_method" effect="bold">
+
+The inherited size method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1058">
+The 
+
+<emphasis id="strong1067" effect="bold">
+setup
+
+</emphasis>
+ method begins by calling the method named 
+
+<emphasis id="strong1068" effect="bold">
+size
+
+</emphasis>
+, which is inherited from the 
+
+
+<emphasis id="strong1069" effect="bold">
+PApplet
+
+</emphasis>
+ class. The documentation for the 
+
+
+<link id="a1057" url="http://processing.org/reference/size_.html">
+
+size
+
+</link>
+
+ method reads partially as 
+follows:
+
+</para>
+
+
+
+
+<para id="p1059">
+<emphasis id="em1033" effect="italics">
+"Defines the dimension of the display window in units of pixels. The 
+
+</emphasis>
+
+
+
+<emphasis id="strong1070" effect="bold">
+<emphasis id="em1034" effect="italics">
+size()
+
+</emphasis>
+</emphasis>
+<emphasis id="em1035" effect="italics">
+ function must be the first line in 
+
+</emphasis>
+<emphasis id="strong1071" effect="bold">
+<emphasis id="em1036" effect="italics">
+
+setup()
+
+</emphasis>
+</emphasis>
+<emphasis id="em1037" effect="italics">
+. If 
+
+</emphasis>
+<emphasis id="strong1072" effect="bold">
+<emphasis id="em1038" effect="italics">
+size()
+
+</emphasis>
+</emphasis>
+<emphasis id="em1039" effect="italics">
+ is not used, the 
+default size of the window is 100x100 pixels. The system variables 
+
+</emphasis>
+<emphasis id="strong1073" effect="bold">
+<emphasis id="em1040" effect="italics">
+
+width
+
+</emphasis>
+</emphasis>
+<emphasis id="em1041" effect="italics">
+ and 
+
+</emphasis>
+<emphasis id="strong1074" effect="bold">
+<emphasis id="em1042" effect="italics">
+height
+
+</emphasis>
+</emphasis>
+<emphasis id="em1043" effect="italics">
+ are set by the parameters 
+passed to this function.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1060">
+<emphasis id="em1044" effect="italics">
+ Do not use variables as the parameters to 
+
+</emphasis>
+<emphasis id="strong1075" effect="bold">
+<emphasis id="em1045" effect="italics">
+size()
+
+</emphasis>
+</emphasis>
+<emphasis id="em1046" effect="italics">
+ 
+function, because it will cause problems when exporting your sketch. When 
+variables are used, the dimensions of your sketch cannot be determined during 
+export. Instead, employ numeric values in the 
+
+</emphasis>
+<emphasis id="strong1076" effect="bold">
+<emphasis id="em1047" effect="italics">
+size()
+
+</emphasis>
+</emphasis>
+<emphasis id="em1048" effect="italics">
+ 
+statement, and then use the built-in 
+
+</emphasis>
+<emphasis id="strong1077" effect="bold">
+<emphasis id="em1049" effect="italics">
+width
+
+</emphasis>
+</emphasis>
+<emphasis id="em1050" effect="italics">
+ and 
+
+</emphasis>
+<emphasis id="strong1078" effect="bold">
+
+
+
+<emphasis id="em1051" effect="italics">
+height
+
+</emphasis>
+</emphasis>
+<emphasis id="em1052" effect="italics">
+ variables inside your program when the dimensions of the 
+display window are needed.
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1061">
+<emphasis id="em1053" effect="italics">
+ The 
+
+</emphasis>
+<emphasis id="strong1079" effect="bold">
+<emphasis id="em1054" effect="italics">
+size()
+
+</emphasis>
+</emphasis>
+<emphasis id="em1055" effect="italics">
+ function can only be used once inside a 
+sketch, and cannot be used for resizing."
+
+</emphasis>
+</para>
+
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="The_display_window" effect="bold">
+
+The display window
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1062">
+In case you were wondering about the type of object shown in
+
+
+<link id="a1058" target-id="Image_1">
+
+Image 1
+
+</link>
+
+, here is some information from the 
+
+
+<link id="a1059" url="http://processing.googlecode.com/svn/trunk/processing/build/javadoc/core/processing/core/PApplet.html">
+
+PApplet
+
+</link>
+
+ 
+documentation.
+
+</para>
+
+
+
+
+<para id="p1063">
+<emphasis id="em1056" effect="italics">
+"This class extends Applet instead of JApplet because 1) historically, we 
+supported Java 1.1, which does not include Swing (without an additional, 
+sizable, download), and 2) Swing is a bloated piece of crap. A Processing applet 
+is a heavyweight AWT component, and can be used the same as any other AWT 
+component, with or without Swing. 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1064">
+<emphasis id="em1057" effect="italics">
+Similarly, Processing runs in a Frame and not a JFrame. However, there's 
+nothing to prevent you from embedding a PApplet into a JFrame, it's just that 
+the base version uses a regular AWT frame because there's simply no need for 
+Swing in that context. If people want to use Swing, they can embed themselves as 
+they wish."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1065">
+Stated differently, the 
+
+<emphasis id="em1058" effect="italics">
+display window
+
+</emphasis>
+ that you see in
+
+
+<link id="a1060" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ is a standard 
+
+<emphasis id="strong1080" effect="bold">
+java.awt.Frame
+
+</emphasis>
+ 
+object.
+
+</para>
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Instantiate_Car_objects" effect="bold">
+
+Instantiate Car objects
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1066">
+After setting the size of the display window, the 
+
+<emphasis id="strong1081" effect="bold">
+setup
+
+</emphasis>
+ 
+method in 
+
+<link id="a1061" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+ instantiates two objects of the 
+
+<emphasis id="strong1082" effect="bold">
+Car
+
+</emphasis>
+ class and saves the 
+object's references in the instance variables named 
+
+<emphasis id="strong1083" effect="bold">
+myCar1
+
+</emphasis>
+ and
+
+
+<emphasis id="strong1084" effect="bold">
+myCar2
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1067">
+We haven't discussed the constructor for the 
+
+<emphasis id="strong1085" effect="bold">
+Car
+
+</emphasis>
+ class yet, but we can see in 
+
+
+<link id="a1062" target-id="Listing_2">
+
+
+Listing 2
+
+</link>
+
+ that the constructor for one 
+
+<emphasis id="strong1086" effect="bold">
+Car
+
+</emphasis>
+ object is passed a 
+
+
+<emphasis id="em1059" effect="italics">
+color
+
+</emphasis>
+ value of 
+pure red and the constructor for the other 
+
+<emphasis id="strong1087" effect="bold">
+Car
+
+</emphasis>
+ object is passed a 
+
+
+<emphasis id="em1060" effect="italics">
+color
+
+</emphasis>
+ value of 
+pure blue.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Lets_talk_about_color" effect="bold">
+
+Let's talk about color
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1068">
+If you are an experienced Java programmer, what I am about to tell you is going to 
+seem really strange.
+
+</para>
+
+
+
+
+<section id="h31017">
+<title>
+<emphasis id="Primitive_types" effect="bold">
+
+Primitive types
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1069">
+As an experienced Java programmer, you know that the Java language defines the 
+following eight primitive types:
+
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1053">
+boolean
+
+</item>
+
+
+	
+
+<item id="li1054">
+char
+
+</item>
+
+
+	
+
+<item id="li1055">
+double 
+
+</item>
+
+
+	
+
+<item id="li1056">
+float 
+
+</item>
+
+
+	
+
+<item id="li1057">
+byte
+
+</item>
+
+
+	
+
+<item id="li1058">
+short
+
+</item>
+
+
+	
+
+<item id="li1059">
+int 
+
+</item>
+
+
+	
+
+<item id="li1060">
+long
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1070">
+However, the Processing 
+
+<link id="a1063" url="http://processing.org/reference/">
+
+reference
+
+</link>
+
+ lists the following eight primitive types:
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1061">
+boolean 
+
+</item>
+
+
+	
+
+<item id="li1062">
+byte 
+
+</item>
+
+
+	
+
+<item id="li1063">
+char 
+
+</item>
+
+
+	
+
+<item id="li1064">
+color 
+
+</item>
+
+
+	
+
+<item id="li1065">
+double 
+
+</item>
+
+
+	
+
+<item id="li1066">
+float 
+
+</item>
+
+
+	
+
+<item id="li1067">
+int 
+
+</item>
+
+
+	
+
+<item id="li1068">
+long
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1071">
+You will note that the primitive 
+
+<emphasis id="strong1088" effect="bold">
+short
+
+</emphasis>
+ type does not appear 
+in this list. You will also note that a new primitive type named 
+
+<emphasis id="strong1089" effect="bold">
+color
+
+</emphasis>
+ 
+has been added to the list.
+
+</para>
+
+
+
+
+<para id="p1072">
+It is easy enough to demonstrate that the 
+
+<emphasis id="strong1090" effect="bold">
+short
+
+</emphasis>
+ type can 
+be used in Processing sketches. Perhaps the omission of 
+
+<emphasis id="strong1091" effect="bold">
+short
+
+</emphasis>
+ 
+from the list of primitive types was simply an oversight.
+
+</para>
+
+
+
+
+<para id="p1073">
+I won't even speculate on how the authors of Processing created something 
+named 
+
+<emphasis id="strong1092" effect="bold">
+color
+
+</emphasis>
+ that behaves like a primitive type, but they 
+obviously did.
+
+</para>
+
+
+
+
+</section>
+<section id="h31018">
+<title>
+<emphasis id="The_primitive_color_type" effect="bold">
+
+The primitive color type
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1074">
+As an experienced Java programmer, you know that the Java programming 
+language does not have a primitive type named 
+
+<emphasis id="strong1093" effect="bold">
+color
+
+</emphasis>
+. However, 
+the standard Java class library does have a class named 
+
+<emphasis id="strong1094" effect="bold">
+Color
+
+</emphasis>
+
+
+
+<emphasis id="em1061" effect="italics">
+(distinguished by an upper-case C)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1075">
+Here is part of what the Processing documentation has to say about the new 
+primitive 
+
+<link id="a1064" url="http://processing.org/reference/color_datatype.html">
+
+color
+
+</link>
+
+ type:
+
+</para>
+
+
+
+
+<para id="p1076">
+<emphasis id="em1062" effect="italics">
+"Datatype for storing color values. Colors may be assigned with get() and color() or they may be specified directly using hexadecimal notation such as #FFCC00 or 0xFFFFCCOO.
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1077">
+<emphasis id="em1063" effect="italics">
+Using print() or println() on a color will produce strange results (usually negative numbers) because of the way colors are stored in memory. A better technique is to use the hex() function to format the color data, or use the red(), green(), and blue() functions to get individual values and print those. 
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1078">
+<emphasis id="em1064" effect="italics">
+The hue(), saturation(), and brightness() functions work in a similar fashion. To extract red, green, and blue values more quickly (for instance when analyzing an image or a frame of video), use bit shifting.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1079">
+<emphasis id="em1065" effect="italics">
+Values can also be created using web color notation. For example, "color c = #006699".
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1080">
+<emphasis id="em1066" effect="italics">
+Web color notation only works for opaque colors. To define a color with an alpha value, you can either use the color() function, or use hexadecimal notation. For hex notation, prefix the values with "0x", for instance "color c = 0xCC006699". In that example, CC (the hex value of 204) is the alpha value, and the remainder is identical to a web color. Note the alpha value is first in the hexadecimal notation (but last when used with the color() function, or functions like fill() and stroke()).
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1081">
+<emphasis id="em1067" effect="italics">
+From a technical standpoint, colors are 32 bits of information ordered as AAAAAAAARRRRRRRRGGGGGGGGBBBBBBBB where the A's contain the alpha value, the R's are the red value, G's are green, and B's are blue. Each component is 8 bits (a number between 0 and 255). These values can be manipulated with bit shifting."
+
+</emphasis>
+</para>
+
+
+
+
+</section>
+<section id="h31019">
+<title>
+<emphasis id="The_color_method" effect="bold">
+
+The color method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1082">
+The word 
+
+<emphasis id="strong1095" effect="bold">
+color
+
+</emphasis>
+ is also used as the name of a method that is 
+inherited from the 
+
+<emphasis id="strong1096" effect="bold">
+PApplet
+
+</emphasis>
+ class. Here is part of what the 
+documentation has to say about the
+
+
+<link id="a1065" url="http://processing.org/reference/color_.html">
+
+color
+
+</link>
+
+ method.
+
+</para>
+
+
+
+
+<para id="p1083">
+<emphasis id="em1068" effect="italics">
+"Creates colors for storing in variables of the color datatype. The parameters are interpreted as RGB or HSB values depending on the current colorMode(). The default mode is RGB values from 0 to 255 and, therefore, the function call color(255, 204, 0) will return a bright yellow color... 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1084">
+<emphasis id="em1069" effect="italics">
+Note that if only one value is provided to color(), it will be interpreted as a grayscale value. Add a second value, and it will be used for alpha transparency. When three values are specified, they are interpreted as either RGB or HSB values. Adding a fourth value applies alpha transparency."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1085">
+Therefore, the calls to the 
+
+<emphasis id="strong1097" effect="bold">
+color
+
+</emphasis>
+ method in the two calls to 
+the 
+
+<emphasis id="strong1098" effect="bold">
+Car
+
+</emphasis>
+ constructor in 
+
+<link id="a1066" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+create and pass 
+
+<emphasis id="strong1099" effect="bold">
+color
+
+</emphasis>
+ 
+values for pure red and pure blue as parameters to the constructor.
+
+</para>
+
+
+
+
+</section>
+<section id="h31020">
+<title>
+<emphasis id="Termination_of_the_setup_method" effect="bold">
+
+Termination of the setup method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1086">
+That completes the discussion of the 
+
+<emphasis id="strong1100" effect="bold">
+setup
+
+</emphasis>
+ method in
+
+
+<link id="a1067" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. When the method terminates, the size of the 
+display window has been set to 200 x 200 pixels. Two objects of the 
+
+<emphasis id="strong1101" effect="bold">
+Car
+
+</emphasis>
+ 
+class have been instantiated and those object's references have been saved in 
+the instance variables named 
+
+<emphasis id="strong1102" effect="bold">
+myCar1
+
+</emphasis>
+ and 
+
+<emphasis id="strong1103" effect="bold">
+myCar2
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1087">
+Without having examined the constructor code for the 
+
+<emphasis id="strong1104" effect="bold">
+Car
+
+</emphasis>
+ 
+class yet, about all we know about the 
+
+<emphasis id="strong1105" effect="bold">
+Car
+
+</emphasis>
+ objects is that a 
+red 
+
+<emphasis id="strong1106" effect="bold">
+color
+
+</emphasis>
+ value was passed to the constructor for one object 
+and a blue 
+
+<emphasis id="strong1107" effect="bold">
+color
+
+</emphasis>
+ value was passed to the constructor for the 
+other object.
+
+</para>
+
+
+
+
+<para id="p1088">
+This looks like a good time to examine the constructor for the 
+
+<emphasis id="strong1108" effect="bold">
+Car
+
+</emphasis>
+ 
+class in order to understand the meaning of the other constructor parameters in
+
+
+<link id="a1068" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Constructor_for_the_Car_class" effect="bold">
+
+Constructor for the Car class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1089">
+The code fragment in 
+
+<link id="a1069" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the beginning 
+of the 
+
+<emphasis id="strong1109" effect="bold">
+Car
+
+</emphasis>
+ 
+class down through the constructor. 
+
+<emphasis id="em1070" effect="italics">
+(The code fragment in
+
+
+<link id="a1070" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ was extracted from 
+
+<link id="a1071" target-id="Listing_1">
+
+
+Listing 1
+
+</link>
+
+ to make it easier to discuss.)
+
+</emphasis>
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Listing 3. Beginning of  				the Car class.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1002" display="block">class Car { 
+  color c;
+  float xpos;
+  float ypos;
+  float xspeed;
+
+  // The Constructor is defined with arguments.
+  Car(color tempC, 
+      float tempXpos, 
+      float tempYpos, 
+      float tempXspeed) { 
+    c = tempC;
+    xpos = tempXpos;
+    ypos = tempYpos;
+    xspeed = tempXspeed;
+  }</code>
+
+
+
+				
+
+<caption>Listing 3. Beginning of  				the Car class.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<section id="h31021">
+<title>
+<emphasis id="Instance_variables" effect="bold">
+
+Instance variables
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1090">
+The 
+
+<emphasis id="strong1110" effect="bold">
+car
+
+</emphasis>
+ class begins by declaring four instance variables to 
+hold values for:
+
+</para>
+
+
+
+
+<list id="ul1014" list-type="bulleted">
+
+	
+
+<item id="li1069">
+A color
+
+</item>
+
+
+	
+
+<item id="li1070">
+An x-coordinate value
+
+</item>
+
+
+	
+
+<item id="li1071">
+A y-coordinate value
+
+</item>
+
+
+	
+
+<item id="li1072">
+A speed value
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31022">
+<title>
+<emphasis id="The_constructor_parameters" effect="bold">
+
+The constructor parameters
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1091">
+Comparing the order of the constructor parameters in 
+
+<link id="a1072" target-id="Listing_3">
+
+
+Listing 3
+
+</link>
+
+ with the parameter values in 
+
+<link id="a1073" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ 
+tells us that the constructor for the first instantiated object of the 
+
+<emphasis id="strong1111" effect="bold">
+
+Car
+
+</emphasis>
+ class received the 
+
+<emphasis id="following_values" effect="bold">
+
+following values
+
+</emphasis>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1015" list-type="bulleted">
+
+	
+
+<item id="li1073">
+A color = red
+
+</item>
+
+
+	
+
+<item id="li1074">
+An x-coordinate value = 0
+
+</item>
+
+
+	
+
+<item id="li1075">
+A y-coordinate value = 100
+
+</item>
+
+
+	
+
+<item id="li1076">
+A speed value = 2
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1092">
+Similarly, the constructor for the second instantiated object of the 
+
+<emphasis id="strong1112" effect="bold">
+
+Car
+
+</emphasis>
+ class received the following values:
+
+</para>
+
+
+
+
+<list id="ul1016" list-type="bulleted">
+
+	
+
+<item id="li1077">
+A color = blue
+
+</item>
+
+
+	
+
+<item id="li1078">
+An x-coordinate value = 0
+
+</item>
+
+
+	
+
+<item id="li1079">
+A y-coordinate value = 10
+
+</item>
+
+
+	
+
+<item id="li1080">
+A speed value = 1
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1093">
+</para>
+
+
+
+
+</section>
+<section id="h31023">
+<title>
+<emphasis id="The_constructor_body" effect="bold">
+
+The constructor body
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1094">
+The four statements in the body of the constructor in 
+
+<link id="a1074" target-id="Listing_3">
+
+
+Listing 3
+
+</link>
+
+ simply save the values of the incoming parameters in the 
+corresponding instance variables discussed 
+
+<link id="a1075" target-id="Instance_variables">
+
+above
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31024">
+<title>
+<emphasis id="Interpretation_of_the_constructor_parameters" effect="bold">
+
+Interpretation of the 
+constructor parameters
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1095">
+<link id="a1076" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ shows a screen shot of the display window 
+while the sketch is running.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1005" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_3" effect="bold">
+</emphasis>
+Image 3. Screen shot of the sketch during  execution.
+</title>
+
+
+
+
+
+<media id="media1002" alt="Screen shot of the sketch during execution." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/pr0110c.jpg" width="207" height="241"/>
+</media>
+
+
+
+
+<caption>Image 3. Screen shot of the sketch during  execution.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1096">
+Looking at 
+
+<link id="a1077" target-id="Image_3">
+
+Image 3
+
+</link>
+
+, you can probably guess that the
+
+
+<emphasis id="strong1113" effect="bold">
+color
+
+</emphasis>
+ values passed to the constructor are used to establish the 
+visible color of each of the two rectangles.
+
+</para>
+
+
+
+
+<para id="p1097">
+Recall that this sketch is an animation where the rectangles move across the 
+screen from left to right at different speeds You will see later that the 
+coordinate values received by the constructor specify the initial positions of 
+the rectangles and that the y-coordinate values never change.
+
+</para>
+
+
+
+
+<para id="p1098">
+Given that the 0,0 origin is at the upper left, you should be able to 
+correlate the vertical position 
+
+<emphasis id="em1071" effect="italics">
+(
+
+<link id="a1078" target-id="following_values">
+
+y-coordinate value
+
+</link>
+
+)
+
+</emphasis>
+ 
+of each rectangle with the color of the rectangle.
+
+</para>
+
+
+
+
+<para id="p1099">
+Because 
+
+<link id="a1079" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ is a screen shot, there is nothing in
+
+
+<link id="a1080" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ that corresponds to the speed parameter in
+
+
+<link id="a1081" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. You will see later that this parameter is 
+used to establish the speed with which each rectangle moves across the display 
+window. Stated differently, each rectangle appears to move across the display 
+window in incremental steps. The speed value is used by the 
+
+<emphasis id="strong1114" effect="bold">
+drive
+
+</emphasis>
+ 
+method to compute the size of each incremental step.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21009">
+<title>
+<emphasis id="The_draw_method_of_the_Cars_class" effect="bold">
+
+The draw method of the Cars 
+class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1100">
+Returning now to the 
+
+<emphasis id="strong1115" effect="bold">
+Cars
+
+</emphasis>
+ class, the code fragment in 
+
+
+<link id="a1082" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ shows the 
+
+
+<emphasis id="strong1116" effect="bold">
+draw
+
+</emphasis>
+ method in its entirety.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1006" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Listing 4. The draw  				method of the Cars class.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1003" display="block">void draw() {
+  background(255);
+  
+  myCar1.drive();
+  myCar1.display();
+  
+  myCar2.drive();
+  myCar2.display();
+}
+</code>
+
+
+
+				
+
+<caption>Listing 4. The draw  				method of the Cars class.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<para id="p1101">
+Recall that by default, the 
+
+<emphasis id="strong1117" effect="bold">
+draw
+
+</emphasis>
+ method is called 
+	repeatedly 60 times per second. Nothing was done in this sketch to change 
+	that.
+
+</para>
+
+
+
+
+<section id="h31025">
+<title>
+<emphasis id="Set_the_background_color" effect="bold">
+
+Set the background color
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1102">
+The 
+
+<emphasis id="strong1118" effect="bold">
+draw
+
+</emphasis>
+ method begins by calling the inherited 
+
+<emphasis id="strong1119" effect="bold">
+
+background
+
+</emphasis>
+ method to erase everything on the display window and set its 
+color to white.
+
+</para>
+
+
+
+
+<para id="p1103">
+There are seven overloaded versions of the 
+
+<emphasis id="strong1120" effect="bold">
+background
+
+</emphasis>
+ method where different 
+parameter types and order are used to produce different behavior.
+
+</para>
+
+
+
+
+<para id="p1104">
+Here is part of what the documentation has to say about the 
+
+
+<link id="a1083" url="http://processing.org/reference/background_.html">
+
+background
+
+</link>
+
+ method.
+
+</para>
+
+
+
+
+<para id="p1105">
+<emphasis id="em1072" effect="italics">
+"The background() function sets the color used for the background of the Processing window. The default background is light gray. background() is typically used within the draw() function to clear the display window at the beginning of each frame.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1106">
+<emphasis id="em1073" effect="italics">
+An image can also be used as the background for a sketch, although the image's width and height must match that of the sketch window. To resize an image to the size of the sketch window, use image.resize(width, height).
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1107">
+<emphasis id="em1074" effect="italics">
+Images used with background() will ignore the current tint() setting.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1108">
+<emphasis id="em1075" effect="italics">
+It is not possible to use transparency (alpha) with background colors on the main drawing surface; you can achieve the same effect with createGraphics()."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1109">
+The version of the background method that is called in 
+
+
+<link id="a1084" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ takes a single parameter. That versions sets 
+the background color to a gray value between white and black. A parameter value 
+of 255 produces white and a parameter value of 0 produces black.
+
+</para>
+
+
+
+
+<para id="p1110">
+</para>
+
+
+
+
+</section>
+<section id="h31026">
+<title>
+<emphasis id="Call_methods_on_the_Car_objects" effect="bold">
+
+Call methods on the Car objects
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1111">
+If you are new to OOP, you may be unfamiliar with the following syntax:
+
+</para>
+
+
+
+
+<para id="p1112">
+<emphasis id="strong1121" effect="bold">
+myCar1.drive();
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1113">
+Basically this means:
+
+</para>
+
+
+
+
+<list id="ul1017" list-type="bulleted">
+
+	
+
+<item id="li1081">
+Go find the object whose reference is stored in the reference variable 
+	named 
+
+<emphasis id="strong1122" effect="bold">
+myCar1
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1082">
+Knock on the object's door and ask it to execute its method named
+	
+
+<emphasis id="strong1123" effect="bold">
+drive
+
+</emphasis>
+.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1114">
+Each time the 
+
+<emphasis id="strong1124" effect="bold">
+draw
+
+</emphasis>
+ method is executed, it asks each 
+
+<emphasis id="strong1125" effect="bold">
+
+Car
+
+</emphasis>
+ object to first execute its 
+
+<emphasis id="strong1126" effect="bold">
+drive
+
+</emphasis>
+ method and then 
+execute its 
+
+<emphasis id="strong1127" effect="bold">
+display
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1115">
+At this point, we don't know what that means exactly because we haven't 
+examined the behavior of the methods named 
+
+<emphasis id="strong1128" effect="bold">
+drive
+
+</emphasis>
+ and 
+
+<emphasis id="strong1129" effect="bold">
+
+display
+
+</emphasis>
+ belonging to the 
+
+<emphasis id="strong1130" effect="bold">
+Car
+
+</emphasis>
+ objects.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21010">
+<title>
+<emphasis id="The_display_method_of_the_Car_class" effect="bold">
+
+The display method of the Car class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1116">
+Switching again to the 
+
+<emphasis id="strong1131" effect="bold">
+Car
+
+</emphasis>
+ class, the code fragment in 
+
+<link id="a1085" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ shows the display 
+method of the 
+
+<emphasis id="strong1132" effect="bold">
+Car
+
+</emphasis>
+ 
+class.
+
+</para>
+
+
+
+
+<figure id="figure1007" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Listing 5. The display method of the Car class
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1004" display="block">  void display() {
+    stroke(0);
+    fill(c);
+    rectMode(CENTER);
+    rect(xpos,ypos,20,10);
+  }//end method named display
+</code>
+
+
+
+				
+
+<caption>Listing 5. The display method of the Car class</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<para id="p1117">
+Note that all four methods that are called in the body of the 
+
+<emphasis id="strong1133" effect="bold">
+
+	display
+
+</emphasis>
+ method are inherited from the class named 
+
+<emphasis id="strong1134" effect="bold">
+PApplet
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+<section id="h31027">
+<title>
+<emphasis id="The_stroke_method" effect="bold">
+
+The stroke method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1118">
+Six overloaded versions of the 
+
+<emphasis id="strong1135" effect="bold">
+stroke
+
+</emphasis>
+ method are inherited 
+from the 
+
+<emphasis id="strong1136" effect="bold">
+PApplet
+
+</emphasis>
+ class into the 
+
+<emphasis id="strong1137" effect="bold">
+Cars 
+
+</emphasis>
+class.
+
+</para>
+
+
+
+
+<para id="p1119">
+<emphasis id="em1076" effect="italics">
+(Methods inherited into the 
+
+<emphasis id="strong1138" effect="bold">
+Cars
+
+</emphasis>
+ class are accessible by 
+objects of the 
+
+<emphasis id="strong1139" effect="bold">
+Car
+
+</emphasis>
+ class because the 
+
+<emphasis id="strong1140" effect="bold">
+Car
+
+</emphasis>
+ class 
+is converted to an inner class of the 
+
+<emphasis id="strong1141" effect="bold">
+Cars
+
+</emphasis>
+ class when 
+the program is compiled by the Processing environment. 
+However, inner classes is a relatively advanced topic that is beyond the scope of this module.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1120">
+Here is some of what the documentation has to say about the 
+
+
+<link id="a1086" url="http://processing.org/reference/stroke_.html">
+
+stroke
+
+</link>
+
+ 
+method.
+
+</para>
+
+
+
+
+<para id="p1121">
+<emphasis id="em1077" effect="italics">
+"Sets the color used to draw lines and borders around shapes. This color is either specified in terms of the RGB or HSB color depending on the current colorMode() (the default color space is RGB, with each value in the range from 0 to 255).
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1122">
+<emphasis id="em1078" effect="italics">
+When using hexadecimal notation to specify a color, use "#" or "0x" before the values (e.g. #CCFFAA, 0xFFCCFFAA). The # syntax uses six digits to specify a color (the way colors are specified in HTML and CSS). 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1123">
+<emphasis id="em1079" effect="italics">
+When using the hexadecimal notation starting with "0x", the hexadecimal value must be specified with eight characters; the first two characters define the alpha component and the remainder the red, green, and blue components. 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1124">
+<emphasis id="em1080" effect="italics">
+The value for the gray parameter must be less than or equal to the current maximum value as specified by colorMode(). The default maximum value is 255."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1125">
+The version of the display method called in 
+
+<link id="a1087" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ 
+requires a single parameter of type 
+
+<emphasis id="strong1142" effect="bold">
+int
+
+</emphasis>
+. This version 
+apparently treats 24 bits of the 32-bit int value as the red, green, and blue 
+color values and ignores the remaining 8 bits. 
+
+</para>
+
+
+
+
+<para id="p1126">
+The parameter value of 0 passed 
+to the stroke method in 
+
+<link id="a1088" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ specifies a black 
+stroke. This causes the rectangles shown in 
+
+<link id="a1089" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ to have 
+black borders.
+
+</para>
+
+
+
+
+</section>
+<section id="h31028">
+<title>
+<emphasis id="The_fill_method" effect="bold">
+
+The fill method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1127">
+The next method called inside the 
+
+<emphasis id="strong1143" effect="bold">
+display
+
+</emphasis>
+ method in
+
+
+<link id="a1090" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ is the method named 
+
+<emphasis id="strong1144" effect="bold">
+fill
+
+</emphasis>
+, which is also inherited 
+from the 
+
+<emphasis id="strong1145" effect="bold">
+PApplet
+
+</emphasis>
+ class. The value stored in the 
+
+<emphasis id="strong1146" effect="bold">
+color
+
+</emphasis>
+ 
+instance variable named 
+
+<emphasis id="strong1147" effect="bold">
+c
+
+</emphasis>
+ is passed as a parameter to the
+
+
+<emphasis id="strong1148" effect="bold">
+fill
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1128">
+The 
+
+<emphasis id="strong1149" effect="bold">
+Cars
+
+</emphasis>
+ class inherits six overloaded versions of the
+
+
+<emphasis id="strong1150" effect="bold">
+fill
+
+</emphasis>
+ method from the 
+
+<emphasis id="strong1151" effect="bold">
+PApplet
+
+</emphasis>
+ class. Here is 
+part of what the documentation has to say about the 
+
+
+<link id="a1091" url="http://processing.org/reference/fill_.html">
+
+fill
+
+</link>
+
+ method.
+
+</para>
+
+
+
+
+<para id="p1129">
+<emphasis id="em1081" effect="italics">
+"Sets the color used to fill shapes. For example, if you run fill(204, 102, 0), all subsequent shapes will be filled with orange. This color is either specified in terms of the RGB or HSB color depending on the current colorMode(). (The default color space is RGB, with each value in the range from 0 to 255.)
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1130">
+<emphasis id="em1082" effect="italics">
+When using hexadecimal notation to specify a color, use "#" or "0x" before the values (e.g., #CCFFAA or 0xFFCCFFAA). The # syntax uses six digits to specify a color (just as colors are typically specified in HTML and CSS). When using the hexadecimal notation starting with "0x", the hexadecimal value must be specified with eight characters; the first two characters define the alpha component, and the remainder define the red, green, and blue components.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1131">
+<emphasis id="em1083" effect="italics">
+The value for the "gray" parameter must be less than or equal to the current maximum value as specified by colorMode(). The default maximum value is 255.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1132">
+<emphasis id="em1084" effect="italics">
+To change the color of an image or a texture, use tint()."
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1133">
+The version of the fill method called in
+
+
+<link id="a1092" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ requires a single parameter of type 
+
+<emphasis id="strong1152" effect="bold">
+
+color 
+
+</emphasis>
+or a hex value. In this case, a value of type 
+
+<emphasis id="strong1153" effect="bold">
+color
+
+</emphasis>
+ 
+is passed as a parameter.
+
+</para>
+
+
+
+
+<para id="p1134">
+The call to the 
+
+<emphasis id="strong1154" effect="bold">
+fill
+
+</emphasis>
+ method in
+
+
+<link id="a1093" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ causes one of the rectangles in
+
+
+<link id="a1094" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ to be filled with a red color and causes the 
+other rectangle to be filled with a blue color. Note however that the rectangles 
+don't exist when the 
+
+<emphasis id="strong1155" effect="bold">
+fill
+
+</emphasis>
+ method returns. The call to the
+
+
+<emphasis id="strong1156" effect="bold">
+fill
+
+</emphasis>
+ method simply determines what the fill color will be when 
+shapes such as rectangles are created later.
+
+</para>
+
+
+
+
+</section>
+<section id="h31029">
+<title>
+<emphasis id="The_rectMode_method" effect="bold">
+
+The rectMode method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1135">
+To make a long story short, the call to the 
+
+<emphasis id="strong1157" effect="bold">
+rectMode
+
+</emphasis>
+ method 
+in
+
+
+<link id="a1095" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, passing CENTER as a parameter specifies that 
+the position parameters used later to specify the location of a rectangle will 
+be interpreted as the center of the rectangle, as opposed to the upper-left 
+corner of the rectangle.
+
+</para>
+
+
+
+
+<para id="p1136">
+I will leave it as an exercise for the student to investigate this further in 
+the documentation for the
+
+
+<link id="a1096" url="http://processing.org/reference/rectMode_.html">
+
+rectMode
+
+</link>
+
+ method.
+
+</para>
+
+
+
+
+</section>
+<section id="h31030">
+<title>
+<emphasis id="The_rect_method" effect="bold">
+
+The rect method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1137">
+We have finally arrived at the ultimate purpose of the 
+
+<emphasis id="strong1158" effect="bold">
+display
+
+</emphasis>
+ 
+method, which is
+
+</para>
+
+
+
+
+<list id="ul1018" list-type="bulleted">
+
+	
+
+<item id="li1083">
+to draw a rectangle 
+
+</item>
+
+
+	
+
+<item id="li1084">
+with a specific width and height,
+
+</item>
+
+
+	
+
+<item id="li1085">
+at a specific location, 
+
+</item>
+
+
+	
+
+<item id="li1086">
+with specific border and fill colors,
+
+</item>
+
+
+	
+
+<item id="li1087">
+on the display window.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1138">
+The 
+
+<emphasis id="strong1159" effect="bold">
+Cars
+
+</emphasis>
+ class inherits three overloaded versions of the 
+
+
+<emphasis id="strong1160" effect="bold">
+rect
+
+</emphasis>
+ method from the 
+
+<emphasis id="strong1161" effect="bold">
+PApplet
+
+</emphasis>
+ class. Here is part of what the 
+documentation has to say about the 
+
+
+<link id="a1097" url="http://processing.org/reference/rect_.html">
+
+rect
+
+</link>
+
+ method.
+
+</para>
+
+
+
+
+<para id="p1139">
+<emphasis id="em1085" effect="italics">
+Draws a rectangle to the screen. A rectangle is a four-sided shape with every angle at ninety degrees. By default, the first two parameters set the location of the upper-left corner, the third sets the width, and the fourth sets the height. The way these parameters are interpreted, however, may be changed with the rectMode() function.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1140">
+<emphasis id="em1086" effect="italics">
+To draw a rounded rectangle, add a fifth parameter, which is used as the radius value for all four corners.
+
+
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1141">
+<emphasis id="em1087" effect="italics">
+To use a different radius value for each corner, include eight parameters. When using eight parameters, the latter four set the radius of the arc at each corner separately, starting with the top-left corner and moving clockwise around the rectangle. 
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1142">
+The version of the 
+
+<emphasis id="strong1162" effect="bold">
+rect
+
+</emphasis>
+ method called in
+
+
+<link id="a1098" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ requires four parameters.
+
+</para>
+
+
+
+
+<para id="p1143">
+The first two parameters passed to the 
+
+<emphasis id="strong1163" effect="bold">
+rect
+
+</emphasis>
+ method in
+
+
+<link id="a1099" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ are the x and y coordinate values for the 
+center of the rectangle. These values are stored in the instance variables shown 
+in 
+
+<link id="a1100" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. You will see later that the x-coordinate 
+values are modified by the 
+
+<emphasis id="strong1164" effect="bold">
+drive
+
+</emphasis>
+ method so that the rectangle will be drawn at a different 
+position each time the 
+
+<emphasis id="strong1165" effect="bold">
+display
+
+</emphasis>
+ method is called.
+
+</para>
+
+
+
+
+<para id="p1144">
+The last two parameters passed to the 
+
+<emphasis id="strong1166" effect="bold">
+rect
+
+</emphasis>
+  method specify 
+that the rectangle will have a width of 20 pixels and a height of 10 pixels.
+
+</para>
+
+
+
+
+<para id="p1145">
+That completes the discussion of the 
+
+<emphasis id="strong1167" effect="bold">
+display
+
+</emphasis>
+ method shown in
+
+
+<link id="a1101" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h21011">
+<title>
+<emphasis id="The_drive_method_of_the_Car_class" effect="bold">
+
+The drive method of the Car 
+class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1146">
+The drive method of the 
+
+<emphasis id="strong1168" effect="bold">
+Car
+
+</emphasis>
+ class is shown in its entirety in
+
+
+<link id="a1102" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1008" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Listing 6. The drive method of the Car class.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1005" display="block">
+  void drive() {
+    xpos = xpos + xspeed;
+    if (xpos &gt; width) {
+      xpos = 0;
+    }//end if statement
+  }//end method named drive
+}//end class named Car
+</code>
+
+
+
+				
+
+<caption>Listing 6. The drive method of the Car class.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<para id="p1147">
+The purpose of the 
+
+<emphasis id="strong1169" effect="bold">
+drive
+
+</emphasis>
+ method is to increase the 
+	x-coordinate position value stored in the instance variable in
+	
+
+<link id="a1103" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ each time the method is called. However, 
+	when the value of the x-coordinate 
+
+<emphasis id="em1088" effect="italics">
+(the center of the rectangle)
+
+</emphasis>
+ goes off 
+	the right side of the display window in 
+
+<link id="a1104" target-id="Image_3">
+
+Image 3
+
+</link>
+
+, the 
+	x-coordinate value is reset to 0.
+
+</para>
+
+
+
+
+</section>
+<section id="h21012">
+<title>
+<emphasis id="Putting_it_all_together" effect="bold">
+
+Putting it all together
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1148">
+Thus, the process of (1) erasing the display window, (2) calling the 
+
+<emphasis id="strong1170" effect="bold">
+Car
+
+</emphasis>
+ 
+object's 
+
+<emphasis id="strong1171" effect="bold">
+display
+
+</emphasis>
+ method, and (3) calling the 
+
+<emphasis id="strong1172" effect="bold">
+Car
+
+</emphasis>
+ object's
+
+
+<emphasis id="strong1173" effect="bold">
+drive
+
+</emphasis>
+ 
+method each time the 
+
+<emphasis id="strong1174" effect="bold">
+draw
+
+</emphasis>
+ method is called in
+
+
+<link id="a1105" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+, causes the rectangles to appear to move from 
+left to right across the display window and then to start over on the left side 
+when they reach the right side.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1149">
+There you have it; a detailed object-oriented explanation of an animated 
+Processing sketch written using OO techniques.
+
+</para>
+
+
+
+
+<para id="p1150">
+Click 
+
+<link id="a1106" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of this 
+sketch in your HTML 5 compatible browser.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1151">
+I encourage you to copy the code from 
+
+<link id="a1107" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ and
+
+
+<link id="a1108" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ into your PDE, being careful to copy the code 
+from 
+
+<link id="a1109" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ into the leftmost PDE tab. 
+
+</para>
+
+
+
+
+<para id="p1152">
+Run the sketch and observe the results. Experiment with the code. Make 
+changes, run the sketch again, and observe the results of your changes. Change 
+the speed. Change the color. Change the initial position. Change the size and 
+background color of the display window. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+<para id="p1153">
+Don't forget to also create and run the JavaScript version of your sketch in 
+your HTML 5 compatible browser. 
+
+</para>
+
+
+
+
+<para id="p1154">
+If you have a programmable Android device, try creating and running the 
+Android version of your sketch in your Android device.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1155">
+In this module, I taught you about the anatomy of the Processing framework by 
+dissecting and explaining an animated sketch.
+
+</para>
+
+
+
+
+<para id="p1156">
+Click 
+
+<link id="a1110" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of this 
+sketch in your HTML 5 compatible browser.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1157">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1175" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1019" list-type="bulleted">
+
+					
+
+<item id="li1088">
+Module name: Pr0110-Anatomy of the Processing Framework
+
+</item>
+
+
+					
+
+<item id="li1089">
+File: Pr0110.htm
+
+
+</item>
+
+
+					
+
+<item id="li1090">
+Published: 02/22/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1176" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1158">
+<emphasis id="strong1177" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1159">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1160">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1161">
+<emphasis id="strong1178" effect="bold">
+Affiliation
+
+</emphasis>
+: I : I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1162">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

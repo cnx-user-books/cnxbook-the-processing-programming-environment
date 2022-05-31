@@ -1,0 +1,1996 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Pr0100-Getting Started with Processing</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45796</md:content-id>
+  <md:title>Pr0100-Getting Started with Processing</md:title>
+  <md:abstract>The purpose of this module is to help you get started programming in the Processing programming environment.</md:abstract>
+  <md:uuid>5ff6f1f9-3ae6-4810-8475-8e18ce03032f</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Images">
+
+Images
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1003">
+<link id="a1003" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="The_true_power_of_OOP">
+
+The true power of OOP
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Specialized_class_libraries">
+
+Specialized class libraries
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Android_and_HTML_5_make_Processing_more_relevant">
+
+Android and HTML 5 make Processing more relevant
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1009">
+<link id="a1009" target-id="A_self-contained_IDE">
+
+An integrated development environment (IDE)
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="The_Getting_Started_tutorial">
+
+The Getting Started tutorial
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1011">
+<link id="a1011" target-id="Run_the_program">
+
+Run the sketch
+
+</link>
+
+
+<list id="ul1005" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1012" target-id="Run_directly_from_the_IDE">
+
+Run directly from the PDE
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1013" target-id="Run_in_JavaScript_mode">
+
+Run in JavaScript mode
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1014">
+<link id="a1014" target-id="A_folder_named_web-export">
+
+A folder named web-export
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1015">
+<link id="a1015" target-id="A_caution_regarding_JavaScript_mode">
+
+A caution 
+			regarding JavaScript mode
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1016" target-id="Export_and_run_as_an_application">
+
+Export and run as an application
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1017">
+<link id="a1017" target-id="Dealing_with_image_files">
+
+Dealing with image and sound files
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1018">
+<link id="a1018" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1019">
+<link id="a1019" target-id="Whats_next">
+
+What's next?
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1020">
+<link id="a1020" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed to teach you about 
+	the 
+
+<link id="a1021" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ open source programming environment.
+
+</para>
+
+
+
+
+<para id="p1001">
+ Processing is a Java-based OOP programming environment designed for people who want to create images, animations, and interactions.
+
+</para>
+
+
+
+
+<para id="p1002">
+The purpose of this module is to help you get started programming in the Processing 
+programming environment.
+
+</para>
+
+
+
+
+<para id="p1003">
+<emphasis id="strong1000" effect="bold">
+Not for beginners
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1004">
+This material is not for beginning programmers. The material in this 
+collection assumes that you already have knowledge of programming fundamentals, 
+preferably in the Java programming language. 
+If that is not the case, I recommend that you first study the 
+
+<emphasis id="em1000" effect="italics">
+Programming Fundamentals
+
+</emphasis>
+ 
+material at 
+
+<link url="/content/col11441/latest/" id="a1022">
+
+Object-Oriented Programming (OOP) with Java
+
+</link>
+
+ 
+and return to this collection once you understand that material.
+
+</para>
+
+
+
+
+<para id="p1005">
+The material in this collection concentrates on the 
+
+<emphasis id="em1001" effect="italics">
+object-oriented
+
+</emphasis>
+ 
+aspects of Java and the Processing environment.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1006">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the images 
+while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Images" effect="bold">
+
+Images
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1021">
+<link id="a1023" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. The Processing Development Environment (PDE). 
+
+</item>
+
+
+		
+
+<item id="li1022">
+<link id="a1024" target-id="Image_2">
+
+Image 2
+
+</link>
+
+. Output from the Cars sketch. 
+
+</item>
+
+
+		
+
+<item id="li1023">
+<link id="a1025" target-id="Image_3">
+
+Image 3
+
+</link>
+
+. JavaScript output mode.
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1007">
+	In Processing, a computer program is called a 
+
+<emphasis id="em1002" effect="italics">
+sketch
+
+</emphasis>
+. Sketches are stored in the 
+	
+
+<emphasis id="em1003" effect="italics">
+Sketchbook
+
+</emphasis>
+, which is a folder on your computer.
+
+</para>
+
+
+
+
+<para id="p1008">
+In this module, I will show you how to create an animated Processing 
+	sketch that can be run in any of three ways:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1024">
+Run directly from the PDE.
+
+</item>
+
+
+	
+
+<item id="li1025">
+Run in JavaScript mode.
+
+</item>
+
+
+	
+
+<item id="li1026">
+Export and run as an application.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+Click 
+
+<link id="a1026" url="index.html">
+
+here
+
+</link>
+
+ to see a live demonstration of the 
+sketch in your HTML 5 compatible browser.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h21001">
+<title>
+<emphasis id="The_true_power_of_OOP" effect="bold">
+
+The true power of OOP
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+The true power of OOP lies not in the programming language, but in the class 
+libraries that support that programming language. This is particularly true of 
+Java OOP because, unlike C++, the Java programming language is lean, small, and 
+compact.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Specialized_class_libraries" effect="bold">
+
+Specialized class libraries
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1011">
+OO programmers working in industry often use a 
+variety of specialized class libraries. The classes in those libraries tend to 
+be specialized for the type of work being done; medical, database, shopping 
+cart, graphics, games, etc.
+
+</para>
+
+
+
+
+<para id="p1012">
+Therefore, in 
+addition to understanding critical OOP concepts, it is also important that 
+aspiring OO programmers develop the ability to work with one or more class libraries 
+in addition to the library that comes with the Java development kit. One of the 
+main reasons that I am writing this collection of modules is to give my OO 
+students an opportunity to work with another class library.
+
+</para>
+
+
+
+
+<para id="p1013">
+Often the most difficult part to learning to use a new class library is 
+learning how to read and interpret the documentation, and the Processing library 
+is no exception.
+
+</para>
+
+
+
+
+<para id="p1014">
+The main documentation for Processing is accessible from the 
+
+<emphasis id="strong1001" effect="bold">
+
+Reference
+
+</emphasis>
+ and 
+
+<emphasis id="strong1002" effect="bold">
+Learning
+
+</emphasis>
+ links at the top of the
+
+
+<link id="a1027" url="http://www.processing.org/">
+
+Cover page
+
+</link>
+
+. While extensive, this 
+documentation is not presented in industry standard javadoc format. 
+Documentation in standard javadoc format is available
+
+
+<link id="a1028" url="http://processing.googlecode.com/svn/trunk/processing/build/javadoc/core/index.html">
+
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Android_and_HTML_5_make_Processing_more_relevant" effect="bold">
+
+Android and HTML 
+5 make Processing more relevant
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+The Processing environment has been around for a long 
+time. It was initially developed to serve as a software sketchbook and to teach fundamentals of computer programming within a visual context. 
+While it originally occupied a very narrow niche market, it has now become more relevant on a 
+broad scale for two important reasons:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1027">
+Processing can be used to develop
+	
+
+<link id="a1029" url="http://processing.org/learning/android/">
+
+Android apps
+
+</link>
+
+.
+
+</item>
+
+
+	
+
+<item id="li1028">
+Processing has a sister product named 
+
+<link id="a1030" url="http://processingjs.org/">
+
+Processing.js
+
+</link>
+
+ that will 
+	automatically convert 
+
+<emphasis id="em1004" effect="italics">
+(with some limitations)
+
+</emphasis>
+ Processing source code into JavaScript code suitable 
+	for use with the 
+
+<emphasis id="em1005" effect="italics">
+canvas
+
+</emphasis>
+ element in HTML 5.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<para id="p1016">
+In other words, Processing directly supports two of the newest and 
+	hottest items in information technology; mobile apps and HTML 5 canvas.
+
+</para>
+
+
+	
+
+	
+
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1017">
+The Processing website provides a number of
+	
+
+<link id="a1031" url="http://processing.org/learning/">
+
+tutorials
+
+</link>
+
+ that explain 
+	important aspects of the Processing environment and also provide sample code 
+	that illustrates those aspects of the environment.
+
+</para>
+
+
+
+
+<section id="h21004">
+<title>
+<emphasis id="A_self-contained_IDE" effect="bold">
+
+An integrated development environment (IDE)
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1018">
+As you will see when you study those tutorials, the Processing programming 
+environment comes with its own integrated development environment 
+
+<emphasis id="em1006" effect="italics">
+(known as the Processing Development 
+Environment or PDE).
+
+</emphasis>
+ A screen shot of the PDE is shown in 
+
+<link id="a1032" target-id="Image_1">
+
+Image 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_1" effect="bold">
+</emphasis>
+Image 1. The Processing Development Environment  (PDE).
+</title>
+
+
+
+
+
+<media id="media1000" alt="The Processing IDE." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/pr0100a.jpg" width="523" height="601"/>
+</media>
+
+
+
+
+<caption>Image 1. The Processing Development Environment  (PDE).</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1019">
+</para>
+
+
+
+
+<para id="p1020">
+Click 
+
+<link id="a1033" url="http://www.processing.org/reference/environment/">
+
+here
+
+</link>
+
+ to 
+view an extensive discussion of the PDE.
+
+</para>
+
+
+
+
+<para id="p1021">
+While it is possible to develop Processing programs outside the PDE, that 
+that presents 
+
+<link id="a1034" url="http://www.learningprocessing.com/tutorials/processing-in-eclipse/">
+
+several issues
+
+</link>
+
+ that I prefer not to deal with involving libraries, etc. 
+Therefore, I will probably use the PDE in most of the modules in this 
+collection.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_Getting_Started_tutorial" effect="bold">
+
+The Getting Started tutorial
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+The 
+
+<link id="a1035" url="http://processing.org/learning/gettingstarted/">
+
+Getting Started
+
+</link>
+
+ 
+tutorial explains how to download and install the Processing environment on Windows, Mac, 
+and Linux.
+
+</para>
+
+
+
+
+<para id="p1023">
+In addition, that tutorial shows you how to create your first sketch along 
+with a lot of other useful information. Study it carefully.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the sketch
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1024">
+The 
+
+<link id="a1036" url="http://processing.org/learning/objects/">
+
+Objects
+
+</link>
+
+ tutorial 
+explains how to write a sketch in which you define your own class named 
+
+<emphasis id="strong1003" effect="bold">
+
+Car
+
+</emphasis>
+ and then instantiate and manipulate objects of that class.
+
+</para>
+
+
+
+
+<para id="p1025">
+I encourage you to copy the code from that tutorial into the PDE. 
+
+
+<emphasis id="em1007" effect="italics">
+(
+
+<link id="a1037" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ shows the beginning of that sketch.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1026">
+Once you have copied the code into the PDE, you have three optional ways to run the sketch:
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1029">
+Run directly from the PDE.
+
+</item>
+
+
+	
+
+<item id="li1030">
+Run in JavaScript mode.
+
+</item>
+
+
+	
+
+<item id="li1031">
+Export and run as an application.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<section id="h21006">
+<title>
+<emphasis id="Run_directly_from_the_IDE" effect="bold">
+
+Run directly from the PDE
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1027">
+You can run the sketch directly from the PDE by either clicking the 
+triangular arrow button shown near the upper-left corner in 
+
+<link id="a1038" target-id="Image_1">
+
+Image 1
+
+</link>
+
+, or by selecting
+
+
+<emphasis id="strong1004" effect="bold">
+Run
+
+</emphasis>
+ from the 
+
+<emphasis id="strong1005" effect="bold">
+Sketch
+
+</emphasis>
+ menu.
+
+</para>
+
+
+
+
+<para id="p1028">
+When you do, a window should appear that looks something like 
+
+<link id="a1039" target-id="Image_2">
+
+Image 2
+
+</link>
+
+ where the two 
+animated rectangles move from left to right 
+across the screen.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_2" effect="bold">
+</emphasis>
+Output from the Cars sketch.
+</title>
+
+
+
+
+
+
+<media id="media1001" alt="Output from the Cars program.." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/pr0100b.jpg" width="207" height="241"/>
+</media>
+
+
+
+
+
+<caption>Output from the Cars sketch.</caption>
+</figure>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21007">
+<title>
+<emphasis id="Run_in_JavaScript_mode" effect="bold">
+
+Run in JavaScript mode
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1029">
+Although it isn't easy to see, there is a button in the upper-right corner of
+the PDE in
+
+
+<link id="a1040" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ that allows you to select an output mode. 
+
+<emphasis id="em1008" effect="italics">
+
+(The default output mode is Java.)
+
+</emphasis>
+ Assuming that your default browser supports the 
+
+
+<emphasis id="em1009" effect="italics">
+canvas
+
+</emphasis>
+ element in HTML 5, 
+selecting the 
+
+<emphasis id="strong1006" effect="bold">
+JavaScript
+
+</emphasis>
+ output mode and clicking the 
+
+<emphasis id="strong1007" effect="bold">
+
+run
+
+</emphasis>
+ 
+button will cause the sketch output to appear in 
+your browser as shown in 
+
+<link id="a1041" target-id="Image_3">
+
+Image 3
+
+</link>
+
+. 
+
+<emphasis id="em1010" effect="italics">
+(See the
+
+
+<link id="a1042" target-id="A_complication_involving_images">
+
+complication
+
+</link>
+
+ involving images.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_3" effect="bold">
+</emphasis>
+Image 3. JavaScript output mode.
+</title>
+
+
+
+
+
+<media id="media1002" alt="JavaScript output mode." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/pr0100c.jpg" width="361" height="353"/>
+</media>
+
+
+
+
+<caption>Image 3. JavaScript output mode.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<section id="h31001">
+<title>
+<emphasis id="A_folder_named_web-export" effect="bold">
+
+A folder named web-export
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1030">
+That will also cause a folder named 
+
+<emphasis id="strong1008" effect="bold">
+web-export
+
+</emphasis>
+ to be created 
+in your Processing sketchbook folder. The 
+
+<emphasis id="strong1009" effect="bold">
+web-export 
+
+</emphasis>
+ folder will contain a file named
+
+
+<emphasis id="strong1010" effect="bold">
+index.html
+
+</emphasis>
+. Opening that file in your HTML 5 compatible 
+browser will produce the output shown in 
+
+<link id="a1043" target-id="Image_3">
+
+Image 3
+
+</link>
+
+, which is the same output that 
+you should see by clicking 
+
+<link id="a1044" url="index.html">
+
+here
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31002">
+<title>
+<emphasis id="A_caution_regarding_JavaScript_mode" effect="bold">
+
+A caution regarding JavaScript 
+mode
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+Not all sketches that can be written in Processing can be successfully run in 
+JavaScript mode. For example, there are two tabs on the references page:
+
+</para>
+
+
+
+
+<list id="ul1011" list-type="bulleted">
+
+	
+
+<item id="li1032">
+Standard Processing
+
+</item>
+
+
+	
+
+<item id="li1033">
+JavaScript (Processing.js)
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1032">
+If you examine the contents of those two tabs, you will see that some of the 
+items that appear on the Standard Processing tab are "grayed out" on the 
+JavaScript tab. If you plan to run your sketch in JavaScript mode, you should 
+probably restrict yourself to using only the items on the JavaScript tab.
+
+</para>
+
+
+
+
+<para id="p1033">
+In addition, the 
+
+<link id="a1045" url="http://processingjs.org/articles/p5QuickStart.html">
+
+Processing.js Quick Start - Processing Developer Edition
+
+</link>
+
+ page 
+explains a number of restrictions that apply to the JavaScript mode.
+
+</para>
+
+
+
+
+
+</section>
+</section>
+<section id="h21008">
+<title>
+<emphasis id="Export_and_run_as_an_application" effect="bold">
+
+Export and run as an application
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1034">
+Finally, selecting 
+
+<emphasis id="strong1011" effect="bold">
+Export Application
+
+</emphasis>
+ on the 
+
+<emphasis id="strong1012" effect="bold">
+File
+
+</emphasis>
+ 
+menu, checking the 
+
+<emphasis id="strong1013" effect="bold">
+Windows
+
+</emphasis>
+ box, and clicking the 
+
+<emphasis id="strong1014" effect="bold">
+
+Export
+
+</emphasis>
+ button will cause two additional folders to be created in your 
+sketchbook folder. 
+
+<emphasis id="em1011" effect="italics">
+(Checking Mac OS X or Linux will cause different folders to 
+be created.)
+
+</emphasis>
+</para>
+
+
+
+
+<list id="ul1012" list-type="bulleted">
+
+	
+
+<item id="li1034">
+application.windows32
+
+</item>
+
+
+	
+
+<item id="li1035">
+application.windows64
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1035">
+Those folders contain everything you need to run your sketch as a 
+stand-alone application on the selected platform.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Dealing_with_image_files" effect="bold">
+
+Dealing with image and sound files
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+Although the sketch in this module doesn't involve image files, sketches in 
+future modules will involve image files and possibly sound files as well.
+
+</para>
+
+
+
+
+<para id="p1037">
+The PDE expects image files and sound files to be located in a folder named
+
+
+<emphasis id="strong1015" effect="bold">
+data
+
+</emphasis>
+ that is a child of the folder containing the files with 
+the .pde extension. You should make certain that they are located there.
+
+</para>
+
+
+
+
+<para id="p1038">
+However, 
+
+<emphasis id="em1012" effect="italics">
+(and this is unusual),
+
+</emphasis>
+ when writing the Java code, you need 
+to write it as though the image file is in the same folder as the pde file. In 
+other words, when referring to the file as a string, don't include the path to 
+the 
+
+<emphasis id="strong1016" effect="bold">
+data
+
+</emphasis>
+ folder.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+In this module, I showed you how to create an animated Processing sketch 
+that can be run in any of three ways:
+
+</para>
+
+
+
+
+<list id="ul1013" list-type="bulleted">
+
+	
+
+<item id="li1036">
+Run directly from the PDE.
+
+</item>
+
+
+	
+
+<item id="li1037">
+Run in JavaScript mode.
+
+</item>
+
+
+	
+
+<item id="li1038">
+Export and run as an application.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1040">
+Click 
+
+<link id="a1046" url="index.html">
+
+here
+
+</link>
+
+ to see a live demonstration of the 
+sketch in your HTML 5 compatible browser.
+
+</para>
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Whats_next" effect="bold">
+
+What's next?
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+In the next module, I will dissect and explain the structural anatomy of the 
+Processing framework.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11009">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1042">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1017" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1014" list-type="bulleted">
+
+					
+
+<item id="li1039">
+Module name: Pr0100-Getting Started with Processing
+
+</item>
+
+
+					
+
+<item id="li1040">
+File: Pr0100.htm
+
+
+</item>
+
+
+					
+
+<item id="li1041">
+Published: 02/25/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1018" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1043">
+<emphasis id="strong1019" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1044">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1045">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1046">
+<emphasis id="strong1020" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1047">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

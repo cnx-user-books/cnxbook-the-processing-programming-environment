@@ -1,0 +1,4273 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Pr0120-Image Explorer</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45799</md:content-id>
+  <md:title>Pr0120-Image Explorer</md:title>
+  <md:abstract>The purpose of this module is teach you how to write an image explorer sketch that can be used determine the coordinates and RGB color values of any pixel in an image by pointing to the pixel with a mouse. The sketch can also be used to determine the dimensions of the image.</md:abstract>
+  <md:uuid>005eee12-90e8-4c66-b005-5b95696daa24</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Images">
+
+Images
+
+</link>
+
+
+</item>
+
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1005">
+<link id="a1005" target-id="Normal_output_from_the_sketch">
+
+Normal output from the 
+		sketch
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1006">
+<link id="a1006" target-id="Output_when_the_image_is_too_wide">
+
+Output when the image 
+		is too wide
+
+</link>
+
+
+</item>
+
+
+		
+
+<item id="li1007">
+<link id="a1007" target-id="Output_when_the_image_is_too_tall">
+
+Output when the image 
+		is too tall
+
+</link>
+
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="General_background_information">
+
+General background information
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1010">
+<link id="a1010" target-id="The_class_named_Pr0120a_">
+
+The class named Pr0120a 
+
+</link>
+
+
+		
+
+<list id="ul1005" list-type="bulleted">
+
+			
+
+<item id="li1011">
+<link id="a1011" target-id="Beginning_of_the_class">
+
+Beginning of the class
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1012">
+<link id="a1012" target-id="The_setup_method">
+
+The setup method
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1013">
+<link id="a1013" target-id="The_draw_method">
+
+The draw method
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+		
+
+<item id="li1014">
+<link id="a1014" target-id="The_class_named_Pr0120aRunner">
+
+The class named Pr0120aRunner
+
+</link>
+
+
+<list id="ul1006" list-type="bulleted">
+
+			
+
+<item id="li1015">
+<link id="a1015" target-id="Beginningoftheclass">
+
+Beginning of the class
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1016">
+<link id="a1016" target-id="Check_for_size_problems">
+
+Check for size problems
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1017">
+<link id="a1017" target-id="Copy_from_input_to_output">
+
+Copy from input to output
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1018">
+<link id="a1018" target-id="An_object_of_the_PImage_class">
+
+An object of the PImage 
+			class
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1019">
+<link id="a1019" target-id="The_arrays_named_pixels">
+
+The arrays named pixels
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1020">
+<link id="a1020" target-id="One-dimensional_arrays">
+
+One-dimensional arrays
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1021">
+<link id="a1021" target-id="Extracting_RGB_color_component_values">
+
+Extracting RGB 
+			color component values
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1022">
+<link id="a1022" target-id="The_property_named_length_and_a_for_loop">
+
+The property 
+			named length and a for loop
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1023">
+<link id="a1023" target-id="Store_colors_in_the_output_array">
+
+Store colors in the output array
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1024">
+<link id="a1024" target-id="Display_pixel_information">
+
+Display pixel information
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1025">
+<link id="a1025" target-id="The_method_named_displayPixelInfo">
+
+The method named displayPixelInfo
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1026">
+<link id="a1026" target-id="Calls_to_the_text_method">
+
+Calls to the text method
+
+</link>
+
+
+</item>
+
+
+			
+
+<item id="li1027">
+<link id="a1027" target-id="Converting_from_two_dimensions_to_one_dimension">
+
+
+			Converting from two dimensions to one dimension
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1028">
+<link id="a1028" target-id="Run_the_program">
+
+Run the program
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1029">
+<link id="a1029" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1030">
+<link id="a1030" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1031">
+<link id="a1031" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed to teach you about 
+	the 
+
+<link id="a1032" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ open source programming environment.
+
+</para>
+
+
+
+
+<para id="p1001">
+ 
+
+<link id="a1033" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ is a Java-based OOP programming environment for people who want to create images, animations, and interactions.
+
+</para>
+
+
+
+
+<para id="p1002">
+The purpose of this module is to teach you how to write an 
+
+<emphasis id="em1000" effect="italics">
+image explorer
+
+</emphasis>
+ sketch 
+that can be used determine the coordinates and RGB color values of any pixel in 
+an image by 
+pointing to the pixel with a mouse. The sketch can also be used to determine the 
+dimensions of the image.
+
+</para>
+
+
+
+
+<para id="p1003">
+Click 
+
+<link id="a1034" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch discussed in this module in your HTML 5 compatible browser.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the images 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Images" effect="bold">
+
+Images
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1007" list-type="bulleted">
+
+		
+
+<item id="li1032">
+<link id="a1035" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. Normal output. 
+
+</item>
+
+
+		
+
+<item id="li1033">
+<link id="a1036" target-id="Image_2">
+
+Image 2
+
+</link>
+
+. Output for image too wide. 
+
+</item>
+
+
+		
+
+<item id="li1034">
+<link id="a1037" target-id="Image_3">
+
+Image 3
+
+</link>
+
+. Output for image too tall. 
+
+</item>
+
+
+		
+
+<item id="li1035">
+<link id="a1038" target-id="Image_4">
+
+Image 4
+
+</link>
+
+. Output produced by a common mathematical algorithm. 
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1008" list-type="bulleted">
+
+		
+
+<item id="li1036">
+<link id="a1039" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class named Pr0120a. 
+
+</item>
+
+
+		
+
+<item id="li1037">
+<link id="a1040" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. The setup method. 
+
+</item>
+
+
+		
+
+<item id="li1038">
+<link id="a1041" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. The draw method. 
+
+</item>
+
+
+		
+
+<item id="li1039">
+<link id="a1042" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Beginning of the class named Pr0120aRunner. 
+
+</item>
+
+
+		
+
+<item id="li1040">
+<link id="a1043" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Check for size problems.
+
+</item>
+
+
+		
+
+<item id="li1041">
+<link id="a1044" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Copy from input to output. 
+
+</item>
+
+
+		
+
+<item id="li1042">
+<link id="a1045" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Store colors in the output array. 
+
+</item>
+
+
+		
+
+<item id="li1043">
+<link id="a1046" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Display pixel information
+
+</item>
+
+
+		
+
+<item id="li1044">
+<link id="a1047" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+. The method named displayPixelInfo.
+
+</item>
+
+
+		
+
+<item id="li1045">
+<link id="a1048" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. Pr0120a.pde.
+
+</item>
+
+
+		
+
+<item id="li1046">
+<link id="a1049" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. Class Pr0120aRunner.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1005">
+In this module, I will teach you how to write a Processing sketch that 
+	can be used to determine the following information by pointing to a location 
+	in an image and pressing a mouse button:
+
+</para>
+
+
+
+
+<list id="ul1009" list-type="bulleted">
+
+	
+
+<item id="li1047">
+Width and height of an image.
+
+</item>
+
+
+	
+
+<item id="li1048">
+X and Y coordinates of the mouse pointer.
+
+</item>
+
+
+	
+
+<item id="li1049">
+RGB color values for the pixel at the mouse pointer.
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="Normal_output_from_the_sketch" effect="bold">
+
+Normal output from the sketch
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1006">
+Normal output from this sketch is shown in the screen capture image in
+
+
+<link id="a1050" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. 
+
+<emphasis id="em1001" effect="italics">
+(Note that a screen capture image does not 
+show the mouse pointer.)
+
+</emphasis>
+</para>
+
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_1" effect="bold">
+</emphasis>
+Image 1. Normal output.
+</title>
+
+
+
+
+
+<media id="media1000" alt="Normal output showing pixel location colors, etc." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/pr0120a1.jpg" width="409" height="384"/>
+</media>
+
+
+
+
+<caption>Image 1. Normal output.</caption>
+</figure>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="Output_when_the_image_is_too_wide" effect="bold">
+
+Output when the image is too 
+wide
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1007">
+<link id="a1051" target-id="Image_2">
+
+Image 2
+
+</link>
+
+ shows the output produced by the program when 
+the width of the image is wider than the width of the display window.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_2" effect="bold">
+</emphasis>
+Image 2. Output for image too wide.
+</title>
+
+
+
+
+
+<media id="media1001" alt="Outproduced when the image is wider than the display windoe." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/pr0120a2.jpg" width="307" height="385"/>
+</media>
+
+
+
+
+<caption>Image 2. Output for image too wide.</caption>
+</figure>
+
+
+
+
+
+
+
+
+</section>
+<section id="h21003">
+<title>
+<emphasis id="Output_when_the_image_is_too_tall" effect="bold">
+
+Output when the image is too 
+tall
+
+</emphasis>
+
+ 
+
+</title>
+
+
+
+
+<para id="p1008">
+<link id="a1052" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ shows the output that is produced when the 
+height of the image is greater than the height of the display window.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_3" effect="bold">
+</emphasis>
+Image 3. Output for image too tall.
+</title>
+
+
+
+
+
+<media id="media1002" alt="Output produced when the height of the image is greater than the height of the display window." display="block">
+<image id="img1002" mime-type="image/jpeg" src="../../media/pr0120a3.jpg" width="407" height="185"/>
+</media>
+
+
+
+
+<caption>Image 3. Output for image too tall.</caption>
+</figure>
+
+
+
+
+
+
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="General_background_information" effect="bold">
+
+General 
+	background information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1009">
+Students in my courses are frequently required to 
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1050">
+Examine the input and output images from an image processing algorithm.
+
+</item>
+
+
+	
+
+<item id="li1051">
+Deduce the nature of the algorithm required to transform the input image 
+	into the output image.
+
+</item>
+
+
+	
+
+<item id="li1052">
+Implement the algorithm in program code.
+
+</item>
+
+
+	
+
+<item id="li1053">
+Demonstrate the correctness of their solution.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1010">
+Items 2 and 4 often require the ability to make precise color measurements on 
+a pixel-by-pixel basis. The sketch that I will explain in this module provides 
+the ability to make such measurements.
+
+</para>
+
+
+
+
+<para id="p1011">
+For example, the image shown in 
+
+<link id="a1053" target-id="Image_4">
+
+Image 4
+
+</link>
+
+ was created by 
+applying a common mathematical algorithm to the image shown in
+
+
+<link id="a1054" target-id="Image_1">
+
+Image 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_4" effect="bold">
+</emphasis>
+Image 4. Output produced by a common mathematical  algorithm.
+</title>
+
+
+
+
+
+<media id="media1003" alt="Image produced by applying a common mathematical algorithm to the image in Image 1." display="block">
+<image id="img1003" mime-type="image/jpeg" src="../../media/pr0120a4.jpg" width="405" height="383"/>
+</media>
+
+
+
+
+<caption>Image 4. Output produced by a common mathematical  algorithm.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1012">
+The RGB color values for both images were displayed at the same pixel 
+location. A student would be expected to compare the color values at several 
+locations, deduce, and then implement the algorithm in program code.
+
+</para>
+
+
+	
+
+	
+
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1013">
+This sketch consists of two Java classes. The code for the 
+
+<emphasis id="em1002" effect="italics">
+driver
+
+</emphasis>
+ class 
+	named 
+
+<emphasis id="strong1000" effect="bold">
+Pr0120a
+
+</emphasis>
+ 
+
+<emphasis id="em1003" effect="italics">
+(the one 
+	in the leftmost panel of the PDE)
+
+</emphasis>
+ is provided in 
+
+<link id="a1055" target-id="Listing_10">
+
+
+	Listing 10
+
+</link>
+
+. The code for the 
+
+<emphasis id="em1004" effect="italics">
+runner
+
+</emphasis>
+ class named 
+
+<emphasis id="strong1001" effect="bold">
+
+	Pr0120aRunner
+
+</emphasis>
+ is provided in 
+
+<link id="a1056" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1014">
+I will break this code down and explain it in fragments.
+
+</para>
+
+
+
+
+<para id="p1015">
+As shown in 
+
+<link id="a1057" target-id="Image_1">
+
+Image 1
+
+</link>
+
+, this sketch displays the 
+coordinates of the mouse pointer along with the RGB color values of the pixel at 
+the mouse pointer whenever the user points to a location inside the display 
+window and presses a mouse button.
+
+</para>
+
+
+
+
+<para id="p1016">
+It is easy to modify the sketch to cause it to display that 
+information without the requirement to press a mouse button.
+
+</para>
+
+
+
+
+<para id="p1017">
+The sketch also displays the width and the height of the image.
+
+
+
+</para>
+
+
+
+
+<para id="p1018">
+The sketch displays an error message in place of the image if the 
+image is wider or taller than the output display window.
+
+</para>
+
+
+
+
+<section id="h21004">
+<title>
+<emphasis id="The_class_named_Pr0120a_" effect="bold">
+
+The class named Pr0120a 
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="Beginning_of_the_class" effect="bold">
+
+Beginning of the class
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1019">
+<link id="a1058" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the special text that you must 
+	include in the code if you plan to use the JavaScript display mode and 
+	display the sketch in your HTML 5 compatible browser.
+
+</para>
+
+
+
+
+<para id="p1020">
+<link id="a1059" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ also shows the declaration of three 
+instance variables.
+
+</para>
+
+
+
+
+
+
+
+
+	
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Listing 1. Beginning of  				the class named Pr0120a.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1000" display="block">
+//@pjs preload required for JavaScript version in browser.
+/* @pjs preload="Pr0120a.jpg"; */
+
+PImage img;
+PFont font;
+
+Pr0120aRunner obj;
+</code>
+
+
+
+				
+
+<caption>Listing 1. Beginning of  				the class named Pr0120a.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="The_setup_method" effect="bold">
+
+The setup method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1021">
+The 
+
+<emphasis id="strong1002" effect="bold">
+setup
+
+</emphasis>
+ method is shown in its entirety in
+
+
+<link id="a1060" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1005" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Listing 2. The setup  				method.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1001" display="block">
+void setup(){
+  size(400,344);
+  frameRate(30);
+  img = loadImage("Pr0120a.jpg");
+  obj = new Pr0120aRunner();
+  font = createFont("Arial",16,true);
+}//end setup
+</code>
+
+
+
+				
+
+<caption>Listing 2. The setup  				method.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<section id="h41000">
+<title>
+<emphasis id="Set_the_size_of_the_display_window" effect="bold">
+
+Set the size of the display 
+	window
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+  The 
+
+<emphasis id="strong1003" effect="bold">
+setup
+
+</emphasis>
+ method begins by calling the
+
+
+<link id="a1061" url="http://processing.org/reference/size_.html">
+
+size
+
+</link>
+
+ method to set the 
+size of the display window. Recall that the call to the 
+
+<emphasis id="strong1004" effect="bold">
+size
+
+</emphasis>
+ method must be the first line of code in the 
+
+<emphasis id="strong1005" effect="bold">
+setup
+
+</emphasis>
+ 
+method. If the 
+
+<emphasis id="strong1006" effect="bold">
+size
+
+</emphasis>
+ method is not called, the display window 
+will be given a default size of 100 x 100 pixels.
+
+</para>
+
+
+
+
+<para id="p1023">
+  Recall also that if you plan to export your sketch in JavaScript mode or to 
+export your sketch as a stand-alone application, you must use literal values as 
+the 
+
+<link id="a1062" url="http://processing.org/reference/size_.html">
+
+parameters
+
+</link>
+
+ to the
+
+
+<emphasis id="strong1007" effect="bold">
+size
+
+</emphasis>
+ method.
+
+</para>
+
+
+
+
+<para id="p1024">
+  You should set the height of the display window to be at least 70 pixels
+  greater than the height of the image to allow room
+  to display the width, height, and pixel information below the image as shown 
+in 
+
+<link id="a1063" target-id="Image_4">
+
+Image 4
+
+</link>
+
+. Otherwise, the black text will be 
+printed on the image and may not be visible, depending on the color of the 
+image.
+
+</para>
+
+
+
+
+<para id="p1025">
+  If you don't know the size of your image, simply make a guess. You will 
+either get an output that displays the size of the image, as in
+
+
+<link id="a1064" target-id="Image_2">
+
+Image 2
+
+</link>
+
+ and 
+
+<link id="a1065" target-id="Image_3">
+
+Image 3
+
+</link>
+
+, or you 
+will get an output that shows the image as in 
+
+<link id="a1066" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ and
+
+
+<link id="a1067" target-id="Image_4">
+
+Image 4
+
+</link>
+
+. In either case, the width and height of the 
+image will be displayed and you can use this information to update the call to 
+the 
+
+<emphasis id="strong1008" effect="bold">
+size
+
+</emphasis>
+ method and recompile the sketch.
+
+</para>
+
+
+
+
+</section>
+<section id="h41001">
+<title>
+<emphasis id="Set_the_font" effect="bold">
+
+Set the font
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+The only other thing that is new in 
+
+<link id="a1068" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ is the 
+call to the 
+
+<link id="a1069" url="http://processing.org/reference/createFont_.html">
+
+
+createFont
+
+</link>
+
+ 
+method.
+
+</para>
+
+
+
+
+<para id="p1027">
+This statement is required to prepare the sketch to draw the text characters 
+on the display window as shown in 
+
+<link id="a1070" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. I will 
+leave it as an exercise for the student to study the documentation for the
+
+
+<emphasis id="strong1009" effect="bold">
+createFont
+
+</emphasis>
+ method in whatever 
+depth is necessary to understand it.
+
+</para>
+
+
+
+
+</section>
+</section>
+<section id="h31004">
+<title>
+<emphasis id="The_draw_method" effect="bold">
+
+The draw method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1028">
+The 
+
+<emphasis id="strong1010" effect="bold">
+draw
+
+</emphasis>
+ method is shown in its entirety in
+
+
+<link id="a1071" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. As you can see, all the duties of the
+
+
+<emphasis id="strong1011" effect="bold">
+draw
+
+</emphasis>
+ method were delegated to the 
+
+<emphasis id="strong1012" effect="bold">
+run
+
+</emphasis>
+ method 
+belonging to an object of the class named 
+
+<emphasis id="strong1013" effect="bold">
+Pr0120aRunner
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1006" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Listing 3. The draw  				method.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1002" display="block">
+void draw(){
+  obj.run();
+}//end draw
+</code>
+
+
+
+				
+
+<caption>Listing 3. The draw  				method.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<para id="p1029">
+You might be wondering why I didn't simply write that code in the 
+
+<emphasis id="strong1014" effect="bold">
+
+draw
+
+</emphasis>
+ method. The reason is that I frequently provide my students with 
+input and output images 
+
+<emphasis id="em1005" effect="italics">
+(such as 
+
+<link id="a1072" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ and
+
+
+<link id="a1073" target-id="Image_4">
+
+Image 4
+
+</link>
+
+)
+
+</emphasis>
+ 
+along with the driver code in 
+
+<link id="a1074" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+. It is then the 
+students responsibility to design and write the code in 
+
+<link id="a1075" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1030">
+In other words, I provide a driver class 
+along with the input and output images. It is the student's responsibility to 
+design and write a class that will run in conjunction with the driver class to 
+transform the input image into the output image.
+
+</para>
+
+
+	
+
+</section>
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_class_named_Pr0120aRunner" effect="bold">
+
+The class named Pr0120aRunner
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<section id="h31005">
+<title>
+<emphasis id="Beginningoftheclass" effect="bold">
+
+Beginning of the class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+The class named 
+
+<emphasis id="strong1015" effect="bold">
+Pr0120aRunner
+
+</emphasis>
+ begins in 
+
+<link id="a1076" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1032">
+<link id="a1077" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ also shows the beginning of the method 
+named 
+
+<emphasis id="strong1016" effect="bold">
+run
+
+</emphasis>
+ that is called by the 
+
+<emphasis id="strong1017" effect="bold">
+draw
+
+</emphasis>
+ method in
+
+
+<link id="a1078" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1007" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Listing 4. Beginning of  				the class named Pr0120aRunner.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1003" display="block">
+class Pr0120aRunner{
+ 
+  void run(){
+    background(255);//white
+    
+    textFont(font,16);//Set the font size, and color
+    fill(0);//black text
+    
+    loadPixels();//required
+    img.loadPixels();//required
+    
+    float reD,greeN,bluE;//store color values here
+    int ctr = 0;//output pixel array counter</code>
+
+
+
+				
+
+<caption>Listing 4. Beginning of  				the class named Pr0120aRunner.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<para id="p1033">
+The 
+
+<emphasis id="strong1018" effect="bold">
+run
+
+</emphasis>
+ method begins by setting the background of the display window to 
+white, and then takes care of some more housekeeping details regarding fonts.
+
+</para>
+
+
+
+
+<para id="p1034">
+Daniel Shiffman tells us about the requirement to use the
+
+
+<link id="a1079" url="http://processing.org/reference/loadPixels_.html">
+
+loadPixels
+
+</link>
+
+ method 
+and the 
+
+<link id="a1080" url="http://processing.org/reference/updatePixels_.html">
+
+
+updatePixels
+
+</link>
+
+ method in his tutorial titled
+
+
+<link id="a1081" url="http://processing.org/learning/pixels/">
+
+Images and Pixels
+
+</link>
+
+. I will 
+leave it as an exercise for the student to study and understand that material.
+
+</para>
+
+
+
+
+<para id="p1035">
+Finally, 
+
+<link id="a1082" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ declares some local variables 
+that will be used later.
+
+</para>
+
+
+
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="Check_for_size_problems" effect="bold">
+
+Check for size problems
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1036">
+The code in 
+
+<link id="a1083" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ checks to confirm that the 
+image will fit in the display window. If not, one of the messages shown in
+
+
+<link id="a1084" target-id="Image_2">
+
+Image 2
+
+</link>
+
+ 
+and 
+
+<link id="a1085" target-id="Image_3">
+
+Image 3
+
+</link>
+
+ is displayed in place of the image.
+
+</para>
+
+
+
+
+
+
+	
+
+<figure id="figure1008" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Listing 5. Check for size  				problems.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1004" display="block">
+    //Display error message in place of image if the 
+    // image won't fit in the display window.    
+    if(img.width &gt; width){
+      text("--Image too wide--",10,20);
+      text("Image width: " + img.width,10,40);
+      text("Display width: " + width,10,60);
+    }else if(img.height &gt; height){
+      text("--Image too tall--",10,20);
+      text("Image height: " + img.height,10,40);
+      text("Display height: " + height,10,60);
+    }else{
+      //Copy pixel colors from the input image to the
+      // display image.
+</code>
+
+
+
+				
+
+<caption>Listing 5. Check for size  				problems.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Copy_from_input_to_output" effect="bold">
+
+Copy from input to output
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+If the image will fit in the display window, the code in 
+
+<link id="a1086" target-id="Listing_6">
+
+
+Listing 6
+
+</link>
+
+ is executed to begin the process of copying the pixel colors from 
+the input image to the display image.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1009" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Listing 6. Copy from  				input to output.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1005" display="block">
+      for(int cnt = 0;cnt &lt; img.pixels.length;cnt++){
+        //Get and save RGB color values for current pixel.
+        reD = red(img.pixels[cnt]);
+        greeN = green(img.pixels[cnt]);
+        bluE = blue(img.pixels[cnt]);
+  
+        //Normally some sort of image processing algorithm
+        // would be implemented here.
+        
+        //Construct output pixel color
+        color c = color(reD, greeN, bluE);
+</code>
+
+
+
+				
+
+<caption>Listing 6. Copy from  				input to output.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<para id="p1038">
+</para>
+
+
+
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="An_object_of_the_PImage_class" effect="bold">
+
+An object of the PImage class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1039">
+Although the syntax is unconventional, the call to the
+
+
+<link id="a1087" url="http://processing.org/reference/loadImage_.html">
+
+loadImage
+
+</link>
+
+ method 
+in 
+
+<link id="a1088" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+ instantiates an object of the class named
+
+
+<link id="a1089" url="http://processing.org/reference/PImage.html">
+
+PImage
+
+</link>
+
+ and stores the 
+object's reference in an instance variable named 
+
+<emphasis id="strong1019" effect="bold">
+img
+
+</emphasis>
+. That 
+object contains the pixel data extracted from the image file.
+
+</para>
+
+
+
+
+<para id="p1040">
+An object of the 
+
+<emphasis id="strong1020" effect="bold">
+PImage
+
+</emphasis>
+ class provides several methods that 
+can be used to manipulate the image. In addition, an object of the 
+
+<emphasis id="strong1021" effect="bold">
+PImage
+
+</emphasis>
+ 
+class contains fields for the 
+
+<emphasis id="strong1022" effect="bold">
+width
+
+</emphasis>
+ and 
+
+<emphasis id="strong1023" effect="bold">
+height
+
+</emphasis>
+ of the image, as 
+well as an array named 
+
+<emphasis id="strong1024" effect="bold">
+pixels[]
+
+</emphasis>
+ that contains the values for every pixel 
+in the image.
+
+</para>
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="The_arrays_named_pixels" effect="bold">
+
+The arrays named pixels
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1041">
+The array containing the pixel data for the input image in this sketch can be 
+accessed as 
+
+<emphasis id="strong1025" effect="bold">
+img.pixels[]
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1042">
+There is a similar pixel array that contains the pixel data for the output 
+display window. That array can be accessed simply as 
+
+<emphasis id="strong1026" effect="bold">
+pixels[]
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1043">
+The data stored in the elements of these arrays is of the Processing 
+primitive type 
+
+<link id="a1090" url="http://processing.org/reference/color_datatype.html">
+
+
+color
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="One-dimensional_arrays" effect="bold">
+
+One-dimensional arrays
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1044">
+Although the pixels in an image can be thought of as a residing on a two-dimensional grid, 
+the pixels are stored in these one-dimensional arrays row-by-row. In other 
+words, the array element that is accessed as 
+
+<emphasis id="strong1027" effect="bold">
+pixels[0]
+
+</emphasis>
+ contains
+
+
+<emphasis id="strong1028" effect="bold">
+color
+
+</emphasis>
+ data for the upper leftmost pixel in the image. The last 
+element in the array contains 
+
+<emphasis id="strong1029" effect="bold">
+color
+
+</emphasis>
+ data for the bottom 
+rightmost pixel in the image.
+
+</para>
+
+
+
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="Extracting_RGB_color_component_values" effect="bold">
+
+Extracting RGB color 
+component values
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+The 
+
+<emphasis id="strong1030" effect="bold">
+Pr0120a
+
+</emphasis>
+ class inherits method named
+
+
+<link id="a1091" url="http://processing.org/reference/red_.html">
+
+red
+
+</link>
+
+,
+
+
+<link id="a1092" url="http://processing.org/reference/green_.html">
+
+green
+
+</link>
+
+, and
+
+
+<link id="a1093" url="http://processing.org/reference/blue_.html">
+
+blue
+
+</link>
+
+.. These methods 
+expect to receive a single parameter of type 
+
+<emphasis id="strong1031" effect="bold">
+color
+
+</emphasis>
+, and return 
+the value of the corresponding RGB component as type 
+
+<emphasis id="strong1032" effect="bold">
+float
+
+</emphasis>
+. By 
+default, the color component values range between 0.0 and 255.0.
+
+</para>
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="The_property_named_length_and_a_for_loop" effect="bold">
+
+The property named length 
+and a for loop
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1046">
+Every array object in Java has a property named 
+
+<emphasis id="strong1033" effect="bold">
+length
+
+</emphasis>
+ whose 
+value is equal to the number of elements in the array. This value is very useful 
+in the conditional clause of loops that are used to traverse an entire array.
+
+</para>
+
+
+
+
+
+
+
+
+<para id="p1047">
+ 
+
+<link id="a1094" target-id="Listing_6">
+
+
+Listing 6
+
+</link>
+
+ shows the beginning of a 
+
+<emphasis id="strong1034" effect="bold">
+for
+
+</emphasis>
+ loop that 
+
+</para>
+
+
+
+
+<list id="ul1010" list-type="bulleted">
+
+	
+
+<item id="li1054">
+Extracts color component values from every pixel in the input image.
+
+</item>
+
+
+	
+
+<item id="li1055">
+Uses those values to construct color values and insert them into the 
+	elements of the array containing the pixel data for the output display.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1048">
+This process is complicated somewhat by the fact that the actual output image may be 
+wider than the input image. This is indicated by the white space on the right 
+side of 
+
+<link id="a1095" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. In other words, it is necessary to take 
+this into account when computing the index of the output array element that is 
+to receive the color from an input array element.
+
+</para>
+
+
+
+
+</section>
+<section id="h31013">
+<title>
+<emphasis id="Store_colors_in_the_output_array" effect="bold">
+
+Store colors in the output array
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1049">
+The code that accomplishes that is shown in 
+
+<link id="a1096" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<figure id="figure1010" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Listing 7. Store colors  				in the output array.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1006" display="block">
+        if(width &gt;= img.width){
+          if((cnt % img.width == 0) &amp;&amp; (cnt != 0)){
+            //Compensate for excess display width by
+            // increasing the output counter.
+            ctr += (width - img.width);
+          }//end if
+          //Store the pixel in the output pixel array
+          // and increment the output counter.
+          pixels[ctr] = c;
+          ctr++;
+        }//end if
+      }//end for loop
+      
+      updatePixels();//required
+      
+    }//end else
+</code>
+
+
+
+				
+
+<caption>Listing 7. Store colors  				in the output array.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<para id="p1050">
+Although this isn't rocket science, you may need to get a pencil and paper 
+and draw some diagrams in order to understand exactly how the code in
+
+
+<link id="a1097" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ work. I will leave that as an exercise for 
+the student.
+
+</para>
+
+
+
+
+<para id="p1051">
+
+
+
+<link id="a1098" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1035" effect="bold">
+else
+
+</emphasis>
+ clause that 
+began in 
+
+<link id="a1099" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31014">
+<title>
+<emphasis id="Display_pixel_information" effect="bold">
+
+Display pixel information
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1052">
+The code in 
+
+<link id="a1100" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ tests to determine if a mouse 
+button is pressed, and if so, calls the method named 
+
+<emphasis id="strong1036" effect="bold">
+displayPixelInfo
+
+</emphasis>
+ 
+to cause the information shown at the bottom of 
+
+<link id="a1101" target-id="Image_1">
+
+Image 1
+
+</link>
+
+ to be 
+displayed.
+
+</para>
+
+
+
+
+<para id="p1053">
+If you remove the 
+
+<emphasis id="strong1037" effect="bold">
+if
+
+</emphasis>
+ statement and simply call the 
+
+<emphasis id="strong1038" effect="bold">
+
+displayPixelInfo 
+
+</emphasis>
+method at this point without regard to the mouse 
+buttons, this information will be displayed any time that the mouse pointer is 
+inside the display window.
+
+</para>
+
+
+
+
+	
+
+<figure id="figure1011" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Listing 8. Display pixel  				information.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1007" display="block">
+    //Display pixel information only if a mouse button
+    // is pressed.
+    if(mousePressed){
+      displayPixelInfo(img);
+    }//end if
+  }//end run
+</code>
+
+
+
+				
+
+<caption>Listing 8. Display pixel  				information.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<para id="p1054">
+<link id="a1102" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ also signals the end of the 
+
+<emphasis id="strong1039" effect="bold">
+run
+
+</emphasis>
+ 
+method.
+
+</para>
+
+
+
+
+</section>
+<section id="h31015">
+<title>
+<emphasis id="The_method_named_displayPixelInfo" effect="bold">
+
+The method named displayPixelInfo
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1055">
+The method named 
+
+<emphasis id="strong1040" effect="bold">
+displayPixelInfo
+
+</emphasis>
+ is shown in its entirety 
+in 
+
+<link id="a1103" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+.
+
+</para>
+
+
+
+
+<para id="p1056">
+This method displays coordinate and color information for the pixel at the current 
+mouse pointer location. It also displays the width and the height of the image.
+
+</para>
+
+
+
+
+	
+
+<figure id="figure1012" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_9" effect="bold">
+</emphasis>
+Listing 9. The method  				named displayPixelInfo.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1008" display="block">
+  void displayPixelInfo(PImage image){
+    //Protect against mouse being outside the frame
+    if((mouseX &lt; width) &amp;&amp; (mouseY &lt; height) &amp;&amp; 
+       (mouseX &gt;= 0) &amp;&amp; (mouseY &gt;= 0)){
+      
+      //Get and display the width and height of the
+      // image.
+      text("Width: " + image.width + "  Height: " + 
+                       image.height,10,height - 50);
+      
+      //Get and display coordinates of mouse pointer.
+      text("X: " + mouseX + ",  Y: " + mouseY,10,
+                                       height - 30);
+ 
+      //Get and display color data for the pixel at the
+      // mouse pointer.
+      text("R: " + red(pixels[mouseY*width+mouseX]) +
+           "  G: " + green(pixels[mouseY*width+mouseX]) +
+           "  B: " + blue(pixels[mouseY*width+mouseX]),
+                                    10,height - 10);
+    }//end if
+  }//end displayPixelInfo
+}//end class Pr0120aRunner
+</code>
+
+
+
+				
+
+<caption>Listing 9. The method  				named displayPixelInfo.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+</section>
+<section id="h31016">
+<title>
+<emphasis id="Calls_to_the_text_method" effect="bold">
+
+Calls to the text method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1057">
+The new material in 
+
+<link id="a1104" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ is the set of repeated 
+calls to the 
+
+<link id="a1105" url="http://processing.org/reference/text_.html">
+
+text
+
+</link>
+
+ 
+method. There are many overloaded versions of this method. In a nutshell, the 
+version used in 
+
+<link id="a1106" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ displays the String given by 
+the first parameter at a location in the display window specified by the second 
+and third parameters.
+
+</para>
+
+
+
+
+<para id="p1058">
+The individual lines of text, as shown in 
+
+<link id="a1107" target-id="Image_1">
+
+Image 1
+
+</link>
+
+, are 
+positioned relative to the bottom of the display window. Therefore, if there is 
+insufficient blank space at the bottom of the window 
+
+<emphasis id="em1006" effect="italics">
+(70 vertical pixels),
+
+</emphasis>
+ 
+the text will be drawn on the bottom of the image. 
+
+</para>
+
+
+
+
+</section>
+<section id="h31017">
+<title>
+<emphasis id="Converting_from_two_dimensions_to_one_dimension" effect="bold">
+
+Converting from 
+two dimensions to one dimension
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1059">
+You may also need some guidance relative to the use of the following 
+expression in 
+
+<link id="a1108" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+:
+
+</para>
+
+
+
+
+<para id="p1060">
+mouseY * width + mouseX
+
+</para>
+
+
+
+
+<para id="p1061">
+This is the expression that is used to extract color data from the 
+one-dimensional pixel array for a pixel at a given X,Y coordinate position.
+
+</para>
+
+
+
+
+<para id="p1062">
+ 
+
+<link id="a1109" target-id="Listing_9">
+
+Listing 9
+
+</link>
+
+ also signals the end of the class named
+
+
+<emphasis id="strong1041" effect="bold">
+Pr0120aRunner
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the program
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1063">
+I encourage you to copy the code from 
+
+<link id="a1110" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+and 
+
+<link id="a1111" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+ and paste it into your PDE. Be sure to 
+put the code from 
+
+<link id="a1112" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ in the leftmost tab.
+
+</para>
+
+
+
+
+<para id="p1064">
+Don't forget to put an image file of your choice in a folder named 
+
+<emphasis id="strong1042" effect="bold">
+
+data
+
+</emphasis>
+ that is a child of the folder that contains the files with the 
+.pde extension. You will need to edit the code from 
+
+<link id="a1113" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ 
+to change the name of the image file in 
+
+<emphasis id="em1007" effect="italics">
+two different places
+
+</emphasis>
+. Change 
+the name from 
+
+<emphasis id="strong1043" effect="bold">
+Pr0120a.jpg
+
+</emphasis>
+ to the name of your file.
+
+</para>
+
+
+
+
+<para id="p1065">
+Run the sketch 
+and observe the results. Experiment with the code. Make changes, run the sketch again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+<para id="p1066">
+Don't forget to also create and run the JavaScript version of your sketch in 
+your HTML 5 compatible browser.
+
+</para>
+
+
+
+
+<para id="p1067">
+Click 
+
+<link id="a1114" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch discussed in this module in your HTML 5 compatible browser. 
+
+</para>
+
+
+
+
+<para id="p1068">
+If you have a programmable Android device
+
+<emphasis id="em1008" effect="italics">
+, 
+
+</emphasis>
+try creating and running the Android version of your sketch in your 
+Android device.
+
+</para>
+
+
+
+
+<para id="p1069">
+Also try creating and running the stand-alone version of the sketch by 
+selecting 
+
+<emphasis id="strong1044" effect="bold">
+Export Application
+
+</emphasis>
+ from the 
+
+<emphasis id="strong1045" effect="bold">
+File
+
+</emphasis>
+ 
+menu while in 
+
+<emphasis id="strong1046" effect="bold">
+Java
+
+</emphasis>
+ mode.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1070">
+In this module, you learned how to write an image explorer sketch 
+that can be used determine the coordinates and RGB color values of any pixel in 
+an image by 
+pointing to the pixel with a mouse. The sketch can also be used to determine the 
+dimensions of the image.
+
+</para>
+
+
+
+
+<para id="p1071">
+Click 
+
+<link id="a1115" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch discussed in this module in your HTML 5 compatible browser.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1072">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1047" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1011" list-type="bulleted">
+
+					
+
+<item id="li1056">
+Module name: Pr0120-Image Explorer
+
+</item>
+
+
+					
+
+<item id="li1057">
+File: Pr0120.htm
+
+
+</item>
+
+
+					
+
+<item id="li1058">
+Published: 02/25/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1048" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1073">
+<emphasis id="strong1049" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1074">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1075">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1076">
+<emphasis id="strong1050" effect="bold">
+Affiliation
+
+</emphasis>
+:: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+</section>
+<section id="h11008">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1077">
+Complete listings of the code discussed in this module are provided in
+
+
+<link id="a1116" target-id="Listing_10">
+
+Listing 10
+
+</link>
+
+ and 
+
+<link id="a1117" target-id="Listing_11">
+
+Listing 11
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<figure id="figure1013" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_10" effect="bold">
+</emphasis>
+Listing 10. Pr0120a.pde.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1009" display="block">
+/*Pr0120a.pde
+Copyright 2013, R.G.Baldwin
+Program illustrates how to write an image explorer sketch
+that will display the coordinates of the mouse pointer
+along with the RGB color values of the pixel at the mouse
+pointer. 
+
+Also displays the width and height of the image.
+
+Displays an error message in place of the image if the 
+image is wider or taller than the output display window.
+**********************************************************/
+//@pjs preload required for JavaScript version in browser.
+/* @pjs preload="Pr0120a.jpg"; */
+
+PImage img;
+PFont font;
+
+Pr0120aRunner obj;
+void setup(){
+  //Make the height of the frame at least 70 pixels
+  // greater than the height of the image to allow room
+  // to display width, height, and pixel information.
+  // Otherwise, the black text may not be visible,
+  // depending on the image colors. If the height of the
+  // frame is less than the height of the image, an error
+  // message is displayed in place of the image.
+  //Make width of the frame at least as wide as the
+  // width of the image. Otherwise an error message will
+  // be displayed in place of the image.
+  size(400,344);
+  frameRate(30);
+  img = loadImage("Pr0120a.jpg");
+  obj = new Pr0120aRunner();
+  font = createFont("Arial",16,true);
+}//end setup
+//-------------------------------------------------------//
+void draw(){
+  obj.run();
+}//end draw
+</code>
+
+
+
+				
+
+<caption>Listing 10. Pr0120a.pde.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+<figure id="figure1014" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_11" effect="bold">
+</emphasis>
+Listing 11. Class Pr0120aRunner.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1010" display="block">
+class Pr0120aRunner{
+ 
+  void run(){
+    background(255);//white
+    
+    textFont(font,16);//Set the font size, and color
+    fill(0);//black text
+    
+    loadPixels();//required
+    img.loadPixels();//required
+    
+    float reD,greeN,bluE;//store color values here
+    int ctr = 0;//output pixel array counter
+
+    //Display error message in place of image if the 
+    // image won't fit in the display window.    
+    if(img.width &gt; width){
+      text("--Image too wide--",10,20);
+      text("Image width: " + img.width,10,40);
+      text("Display width: " + width,10,60);
+    }else if(img.height &gt; height){
+      text("--Image too tall--",10,20);
+      text("Image height: " + img.height,10,40);
+      text("Display height: " + height,10,60);
+    }else{
+      //Copy pixel colors from the input image to the
+      // display image. 
+      for(int cnt = 0;cnt &lt; img.pixels.length;cnt++){
+        //Get and save RGB color values for current pixel.
+        reD = red(img.pixels[cnt]);
+        greeN = green(img.pixels[cnt]);
+        bluE = blue(img.pixels[cnt]);
+  
+        //Normally some sort of image processing algorithm
+        // would be implemented here.
+        
+        //Construct output pixel color
+        color c = color(reD, greeN, bluE);
+        
+        if(width &gt;= img.width){
+          if((cnt % img.width == 0) &amp;&amp; (cnt != 0)){
+            //Compensate for excess display width by
+            // increasing the output counter.
+            ctr += (width - img.width);
+          }//end if
+          //Store the pixel in the output pixel array
+          // and increment the output counter.
+          pixels[ctr] = c;
+          ctr++;
+        }//end if
+      }//end for loop
+      updatePixels();//required
+    }//end else
+    
+    //Display pixel information only if a mouse button
+    // is pressed.
+    if(mousePressed){
+      displayPixelInfo(img);
+    }//end if
+  }//end run
+  
+  //-----------------------------------------------------//
+  //Method to display coordinate and pixel color info at
+  // the current mouse pointer location. Also displays 
+  // width and height information about the image.
+  void displayPixelInfo(PImage image){
+    //Protect against mouse being outside the frame
+    if((mouseX &lt; width) &amp;&amp; (mouseY &lt; height) &amp;&amp; 
+       (mouseX &gt;= 0) &amp;&amp; (mouseY &gt;= 0)){
+      
+      //Get and display the width and height of the
+      // image.
+      text("Width: " + image.width + "  Height: " + 
+                       image.height,10,height - 50);
+      
+      //Get and display coordinates of mouse pointer.
+      text("X: " + mouseX + ",  Y: " + mouseY,10,
+                                       height - 30);
+ 
+      //Get and display color data for the pixel at the
+      // mouse pointer.
+      text("R: " + red(pixels[mouseY*width+mouseX]) +
+           "  G: " + green(pixels[mouseY*width+mouseX]) +
+           "  B: " + blue(pixels[mouseY*width+mouseX]),
+                                    10,height - 10);
+    }//end if
+  }//end displayPixelInfo
+}//end class Pr0120aRunner
+</code>
+
+
+
+				
+
+<caption>Listing 11. Class Pr0120aRunner.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+<para id="p1078">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>

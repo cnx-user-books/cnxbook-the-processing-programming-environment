@@ -1,0 +1,2818 @@
+<document xmlns="http://cnx.rice.edu/cnxml"> 
+<title>Pr0140-A space-wise linear pixel-modification algorithm</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45810</md:content-id>
+  <md:title>Pr0140-A space-wise linear pixel-modification algorithm</md:title>
+  <md:abstract>The purpose of this module is to teach you: (1) how to develop a template sketch for implementing pixel modification algorithms, and (2) how to implement a space-wise linear pixel modification algorithm.</md:abstract>
+  <md:uuid>a8605fb3-1f85-4873-b734-1b74f1753874</md:uuid>
+</metadata>
+
+<content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section id="h11000">
+<title>
+Table of Contents
+
+</title>
+
+
+
+
+<list id="ul1000" list-type="bulleted">
+
+	
+
+<item id="li1000">
+<link id="a1000" target-id="Preface">
+
+Preface
+
+</link>
+
+
+	
+
+<list id="ul1001" list-type="bulleted">
+
+		
+
+<item id="li1001">
+<link id="a1001" target-id="Viewing_tip">
+
+Viewing tip
+
+</link>
+
+
+<list id="ul1002" list-type="bulleted">
+
+			
+
+<item id="li1002">
+<link id="a1002" target-id="Images">
+
+Images
+
+</link>
+
+
+</item>
+
+
+
+			
+
+<item id="li1003">
+<link id="a1003" target-id="Listings">
+
+Listings
+
+</link>
+
+
+</item>
+
+
+		
+
+</list>
+
+
+		
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</item>
+
+
+	
+
+<item id="li1004">
+<link id="a1004" target-id="Preview">
+
+Preview
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1005">
+<link id="a1005" target-id="Discussion_and_sample_code">
+
+Discussion and sample code
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1006">
+<link id="a1006" target-id="Run_the_program">
+
+Run the sketch
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1007">
+<link id="a1007" target-id="Summary">
+
+Summary
+
+</link>
+
+ 
+
+</item>
+
+
+	
+
+<item id="li1008">
+<link id="a1008" target-id="Miscellaneous">
+
+Miscellaneous
+
+</link>
+
+
+</item>
+
+
+	
+
+<item id="li1009">
+<link id="a1009" target-id="Complete_program_listing">
+
+Complete program listing
+
+</link>
+
+
+</item>
+
+
+
+
+</list>
+
+
+	
+
+	
+
+</section>
+<section id="h11001">
+<title>
+<emphasis id="Preface" effect="bold">
+
+Preface
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1000">
+This module is one in a collection of modules designed to teach you about 
+	the 
+
+<link id="a1010" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ open source programming environment.
+
+</para>
+
+
+
+
+<para id="p1001">
+ 
+
+<link id="a1011" url="http://processing.org/">
+
+Processing
+
+</link>
+
+ is a Java-based OOP programming environment for people who want to create images, animations, and interactions.
+
+</para>
+
+
+
+
+<para id="p1002">
+The purpose of this module is to teach you:
+
+</para>
+
+
+
+
+<list id="ol1000" list-type="enumerated">
+
+	
+
+<item id="li1010">
+How to develop a template sketch for implementing pixel modification 
+	algorithms, and
+
+</item>
+
+
+	
+
+<item id="li1011">
+How to implement a space-wise linear pixel modification algorithm.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1003">
+Click 
+
+<link id="a1012" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch discussed in this module in your HTML 5 compatible browser.
+
+</para>
+
+
+	
+
+<section id="h21000">
+<title>
+<emphasis id="Viewing_tip" effect="bold">
+
+Viewing tip
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1004">
+I recommend that you open another copy of this module in a separate 
+browser window and use the following links to easily find and view the images 
+and listings while you are reading about them.
+
+</para>
+
+
+	
+
+<section id="h31000">
+<title>
+<emphasis id="Images" effect="bold">
+
+Images
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1003" list-type="bulleted">
+
+		
+
+<item id="li1012">
+<link id="a1013" target-id="Image_1">
+
+Image 1
+
+</link>
+
+. The raw image. 
+
+</item>
+
+
+		
+
+<item id="li1013">
+<link id="a1014" target-id="Image_2">
+
+Image 2
+
+</link>
+
+. The modified image.
+
+</item>
+
+
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+<section id="h31001">
+<title>
+<emphasis id="Listings" effect="bold">
+
+Listings
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<list id="ul1004" list-type="bulleted">
+
+		
+
+<item id="li1014">
+<link id="a1015" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+. Beginning of the class and the run method. 
+
+</item>
+
+
+		
+
+<item id="li1015">
+<link id="a1016" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+. Beginning of the processPixels method.
+
+</item>
+
+
+		
+
+<item id="li1016">
+<link id="a1017" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+. Beginning of a for loop.
+
+</item>
+
+
+		
+
+<item id="li1017">
+<link id="a1018" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+. Compute the scale factor for the column.
+
+</item>
+
+
+		
+
+<item id="li1018">
+<link id="a1019" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+. Compute a new color.
+
+</item>
+
+
+		
+
+<item id="li1019">
+<link id="a1020" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+. Store modified pixel color in the output pixel array.
+
+</item>
+
+
+		
+
+<item id="li1020">
+<link id="a1021" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+. Pr0140a.pde.
+
+</item>
+
+
+		
+
+<item id="li1021">
+<link id="a1022" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. Pr0140aRunner.pde.
+
+</item>
+
+
+	
+
+</list>
+
+
+	
+
+</section>
+</section>
+</section>
+<section id="h11002">
+<title>
+<emphasis id="Preview" effect="bold">
+
+Preview
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<section id="h21001">
+<title>
+<emphasis id="The_algorithm" effect="bold">
+
+The algorithm
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1005">
+The pixel modification algorithm that I will implement in this module can be 
+described as follows:
+
+</para>
+
+
+
+
+<para id="p1006">
+Scale the blue and green color components of each pixel by a scale factor 
+that is less than or equal to 1.0. 
+
+</para>
+
+
+
+
+<para id="p1007">
+The green scale factor:
+
+</para>
+
+
+
+
+<list id="ul1005" list-type="bulleted">
+
+	
+
+<item id="li1022">
+Is equal to 1.0 on the left side of the image
+
+</item>
+
+
+	
+
+<item id="li1023">
+Is equal to 0.0 on the right side of the image
+
+</item>
+
+
+	
+
+<item id="li1024">
+Decreases linearly with distance going from left to right across the 
+	image.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1008">
+The blue scale factor
+
+</para>
+
+
+
+
+<list id="ul1006" list-type="bulleted">
+
+	
+
+<item id="li1025">
+Is 0.0 on the left side of the image
+
+</item>
+
+
+	
+
+<item id="li1026">
+Is 1.0 on the right side of the image
+
+</item>
+
+
+	
+
+<item id="li1027">
+Increases linearly with distance going from left to right across the 
+	image.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1009">
+The value of the red color component is not modified.
+
+</para>
+
+
+
+
+</section>
+<section id="h21002">
+<title>
+<emphasis id="The_output_images" effect="bold">
+
+The output images
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1010">
+Depending on whether or not pixel modification is enabled before compiling 
+the program, the sketch will produce one of the two images shown in
+
+
+<link id="a1023" target-id="Image_1">
+
+
+Image 1
+
+</link>
+
+ and
+
+
+<link id="a1024" target-id="Image_2">
+
+
+Image 2
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+<para id="p1011">
+The raw image is shown in
+
+
+<link id="a1025" target-id="Image_1">
+
+
+Image 1
+
+</link>
+
+. 
+
+</para>
+
+
+
+
+
+
+<figure id="figure1000" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_1" effect="bold">
+</emphasis>
+Image 1. The raw image.
+</title>
+
+
+
+
+
+<media id="media1000" alt="The raw image of a penguin standing in the snow." display="block">
+<image id="img1000" mime-type="image/jpeg" src="../../media/pr0140a1.jpg" width="372" height="385"/>
+</media>
+
+
+
+
+<caption>Image 1. The raw image.</caption>
+</figure>
+
+
+
+
+
+
+
+
+<para id="p1012">
+The modified image is shown in
+
+
+<link id="a1026" target-id="Image_2">
+
+
+Image 2
+
+</link>
+
+.
+
+</para>
+
+
+
+
+
+
+<figure id="figure1001" type="figure">
+<label>Figure</label>
+
+
+<title>
+<emphasis id="Image_2" effect="bold">
+</emphasis>
+Image 2. The modified image.
+</title>
+
+
+
+
+
+<media id="media1001" alt="The modified image of a penguin standing in the snow." display="block">
+<image id="img1001" mime-type="image/jpeg" src="../../media/pr0140a2.jpg" width="372" height="385"/>
+</media>
+
+
+
+
+
+<caption>Image 2. The modified image.</caption>
+</figure>
+
+
+
+
+
+
+	
+
+	
+
+</section>
+</section>
+<section id="h11003">
+<title>
+<emphasis id="Discussion_and_sample_code" effect="bold">
+
+Discussion and sample code
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+	
+
+<para id="p1013">
+This sketch consists of two classes:
+
+</para>
+
+
+
+
+<list id="ul1007" list-type="bulleted">
+
+	
+
+<item id="li1028">
+Pr0140a 
+
+<emphasis id="em1000" effect="italics">
+(see 
+
+<link id="a1027" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+	
+
+<item id="li1029">
+Pr0140aRunner 
+
+<emphasis id="em1001" effect="italics">
+(see 
+
+<link id="a1028" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+)
+
+</emphasis>
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1014">
+The code in 
+
+<link id="a1029" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ is the code that needs to be 
+in the leftmost tab of the PDE.
+
+</para>
+
+
+
+
+<section id="h21003">
+<title>
+<emphasis id="Will_explain_in_fragments" effect="bold">
+
+Will explain in fragments
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1015">
+I will break this code down and explain it in fragments. As I go along, I 
+will be explaining how this code forms a template for the development of other 
+pixel modification algorithms in future modules.
+
+</para>
+
+
+
+
+</section>
+<section id="h21004">
+<title>
+<emphasis id="The_driver_class_named_Pr0140a" effect="bold">
+
+The driver class named Pr0140a
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1016">
+The driver class that appears in the leftmost tab in the PDE hasn't changed 
+significantly since I first explained it in 
+
+
+<link url="/content/m45799" id="a1030">
+
+Pr0120-Image Explorer
+
+</link>
+
+. Therefore, I 
+won't repeat that explanation here.
+
+</para>
+
+
+
+
+</section>
+<section id="h21005">
+<title>
+<emphasis id="The_runner_class_named_Pr0140aRunner" effect="bold">
+
+The runner class named 
+Pr0140aRunner
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1017">
+Aside from the specific implementation of the pixel modification algorithm, 
+the major difference between this sketch and the sketches since
+
+
+<link url="/content/m45799" id="a1031">
+
+Pr0120-Image Explorer
+
+</link>
+
+ is that I have 
+made the code more modular.
+
+</para>
+
+
+
+
+<para id="p1018">
+For example, I have attempted to isolate those portions of the template that 
+are likely to change from one algorithm go the next from those portions that are 
+less likely to change. That will make it easier to explain how the code for one 
+algorithm differs from the code for other algorithms.
+
+</para>
+
+
+
+
+<section id="h31002">
+<title>
+<emphasis id="The_beginning_of_the_class_and_the_run_method" effect="bold">
+
+The beginning of the 
+class and the run method
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1019">
+<link id="a1032" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ shows the beginning of the class and 
+	the modified 
+
+<emphasis id="strong1000" effect="bold">
+run
+
+</emphasis>
+ 
+	method. It is unlikely that this code will change much from one algorithm to 
+	the next.
+
+</para>
+
+
+
+
+
+
+
+	
+
+<figure id="figure1002" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_1" effect="bold">
+</emphasis>
+Listing 1. Beginning  				of the class and the run method.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1000" display="block">
+class Pr0140aRunner{
+  //The following instance variable is used to set the
+  // color of the appropriate pixel in the output display
+  // window.
+  int ctr = 0;//output pixel array counter
+  
+  void run(){
+    background(255);//white
+    textFont(font,16);//Set the font size
+    fill(255,0,0);//Set the text color to red
+    
+    //Display error message in place of image if the 
+    // image won't fit in the display window.    
+    if(img.width &gt; width){
+      text("--Image too wide--",10,20);
+      text("Image width: " + img.width,10,40);
+      text("Display width: " + width,10,60);
+    }else if(img.height &gt; height){
+      text("--Image too tall--",10,20);
+      text("Image height: " + img.height,10,40);
+      text("Display height: " + height,10,60);
+    }else{
+      //The image will fit in the output window.
+      
+      //Call a method that will apply a specific 
+      // pixel-modification algorithm and write the
+      // modified pixel colors into the output window. 
+      processPixels();
+    }//end else
+    
+    //Display the author's name on the output in the font
+    // size and text color defined above.
+    text("Dick Baldwin",10,20);
+    
+    //Display information about the pixel being pointed
+    // to with the mouse. Display near the bottom of the 
+    // output window.
+    displayPixelInfo(img);
+  }//end run</code>
+
+
+
+				
+
+<caption>Listing 1. Beginning  				of the class and the run method.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+</section>
+<section id="h31003">
+<title>
+<emphasis id="Major_differences_in_the_run_method" effect="bold">
+
+Major differences in the 
+	run method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1020">
+The first major difference between this and previous versions of the 
+
+<emphasis id="strong1001" effect="bold">
+run
+
+</emphasis>
+ 
+method is the delegation of pixel manipulation operations to the method named
+
+
+<emphasis id="strong1002" effect="bold">
+processPixels
+
+</emphasis>
+. Moving those operations to a separate method 
+will decrease the likelihood that it will be necessary to modify the code in
+
+
+<link id="a1033" target-id="Listing_1">
+
+Listing 1
+
+</link>
+
+ to implement different algorithms.
+
+</para>
+
+
+
+
+<para id="p1021">
+I will identify the second major change later.
+
+</para>
+
+
+
+
+</section>
+<section id="h31004">
+<title>
+<emphasis id="Beginning_of_the_processPixels_method" effect="bold">
+
+Beginning of the 
+processPixels method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1022">
+The 
+
+<emphasis id="strong1003" effect="bold">
+processPixels
+
+</emphasis>
+ method, which begins in 
+
+
+<link id="a1034" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+,   applies a pixel modification algorithm that causes the 
+  green and blue color values to be scaled on a linear
+  basis moving from left to right across the image.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1003" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_2" effect="bold">
+</emphasis>
+Listing 2. Beginning of the processPixels method.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1001" display="block">
+  void processPixels(){
+    loadPixels();//required
+    img.loadPixels();//required
+    float reD,greeN,bluE;//store color values here
+    ctr = 0;//initialize output pixel array counter
+</code>
+
+
+
+				
+
+<caption>Listing 2. Beginning of the processPixels method.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<para id="p1023">
+The code in 
+
+<link id="a1035" target-id="Listing_2">
+
+Listing 2
+
+</link>
+
+:
+
+</para>
+
+
+
+
+<list id="ul1008" list-type="bulleted">
+
+	
+
+<item id="li1030">
+Does some preliminary housekeeping regarding pixels, 
+
+<emphasis id="em1002" effect="italics">
+(which you have 
+	seen before)
+
+</emphasis>
+.
+
+</item>
+
+
+	
+
+<item id="li1031">
+Declares local variables for storage of red, green, and blue color 
+	values.
+
+</item>
+
+
+	
+
+<item id="li1032">
+Initializes the counter that is used to position color values in the 
+	output pixel array.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+</section>
+<section id="h31005">
+<title>
+<emphasis id="Beginning_of_a_for_loop" effect="bold">
+
+Beginning of a for loop
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1024">
+<link id="a1036" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ shows the beginning of a 
+
+<emphasis id="strong1004" effect="bold">
+for
+
+</emphasis>
+ 
+loop that is used to process every pixel in the input pixel array.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1004" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_3" effect="bold">
+</emphasis>
+Listing 3. Beginning of a  				for loop.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1002" display="block">
+    //Process each pixel in the input image.
+    for(int cnt = 0;cnt &lt; img.pixels.length;cnt++){
+      //Get and save RGB color values for current pixel.
+      reD = red(img.pixels[cnt]);
+      greeN = green(img.pixels[cnt]);
+      bluE = blue(img.pixels[cnt]);
+</code>
+
+
+
+				
+
+<caption>Listing 3. Beginning of a  				for loop.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+</section>
+<section id="h31006">
+<title>
+<emphasis id="Get_and_save_color_values" effect="bold">
+
+Get and save color values
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1025">
+The code in 
+
+<link id="a1037" target-id="Listing_3">
+
+Listing 3
+
+</link>
+
+ gets and saves the RGB color 
+values for the current pixel.
+
+</para>
+
+
+
+
+</section>
+<section id="h31007">
+<title>
+<emphasis id="Compute_the_column_number" effect="bold">
+
+Compute the column number
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1026">
+This algorithm applies the same scale factor to every pixel in each column. 
+Therefore, it is necessary to identify the column to which a pixel belongs when 
+the colors for the pixel are retrieved from the pixel array. However, it is not 
+necessary to identify the row. 
+
+<emphasis id="em1003" effect="italics">
+(We will get to that in later modules.)
+
+</emphasis>
+</para>
+
+
+
+
+<para id="p1027">
+The code in 
+
+<link id="a1038" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses the modulus operator to 
+compute the column number based on the loop counter, 
+
+<emphasis id="em1004" effect="italics">
+(which is the same as the input pixel array index)
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1005" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_4" effect="bold">
+</emphasis>
+Listing 4. Compute the  				scale factor for the column.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1003" display="block">
+      //Compute the column number and use it to compute
+      // the linear scale factors that will be applied to
+      // the green and blue color values.
+      int col = cnt%img.width;
+      float greenScale = (float)(width - col)/width;
+      float blueScale = (float)(col)/width;
+</code>
+
+
+
+				
+
+<caption>Listing 4. Compute the  				scale factor for the column.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+</section>
+<section id="h31008">
+<title>
+<emphasis id="Compute_the_scale_factor_for_the_column" effect="bold">
+
+Compute the scale 
+	factor for the column
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+<para id="p1028">
+The code in 
+
+<link id="a1039" target-id="Listing_4">
+
+Listing 4
+
+</link>
+
+ uses the column number to 
+compute the two required scale factors.
+
+</para>
+
+
+
+
+<para id="p1029">
+If case you haven't recognized it, the expression for 
+
+<emphasis id="strong1005" effect="bold">
+greenScale
+
+</emphasis>
+ 
+is the equation for a straight line that goes through 1.0 on the left side of 
+the image and goes through 0.0 on the right side of the image.
+
+</para>
+
+
+
+
+<para id="p1030">
+Similarly, the expression for 
+
+<emphasis id="strong1006" effect="bold">
+blueScale
+
+</emphasis>
+ is the equation for 
+a straight line that goes through 0.0 on the left and 1.0 on the right.
+
+</para>
+
+
+
+
+</section>
+<section id="h31009">
+<title>
+<emphasis id="Compute_a_new_color" effect="bold">
+
+Compute a new color
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1031">
+<link id="a1040" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+ computes a new color based on scaled 
+versions of the green and blue input color values. The red color value is not 
+modified.
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1006" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_5" effect="bold">
+</emphasis>
+Listing 5. Compute a new  				color.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1004" display="block">
+      color colr = 
+              color(reD, greenScale*greeN, blueScale*bluE);
+      //Enable the following statement to override the
+      // color modification and display the raw image in 
+      // the output window. Disable it to display the 
+      // modified image.
+      //colr = color(reD, greeN, bluE);
+</code>
+
+
+
+				
+
+<caption>Listing 5. Compute a new  				color.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+<para id="p1032">
+If you enable the last statement in 
+
+<link id="a1041" target-id="Listing_5">
+
+Listing 5
+
+</link>
+
+, 
+	the new output color will be identical to the old input color. This is 
+	useful when you need to produce an output image showing the unmodified input 
+	image as in 
+
+<link id="a1042" target-id="Image_1">
+
+Image 1
+
+</link>
+
+.
+
+</para>
+
+
+
+
+</section>
+<section id="h31010">
+<title>
+<emphasis id="Store_modified_pixel_color_in_the_output_pixel_array" effect="bold">
+
+Store 
+modified pixel color in the output pixel array
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1033">
+The second major difference between this and previous versions of the 
+
+<emphasis id="strong1007" effect="bold">
+run
+
+</emphasis>
+ 
+method is the delegation of the code that stores the modified pixel color in the 
+output pixel array to a separate method named 
+
+<emphasis id="strong1008" effect="bold">
+setOutputPixelColor
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1034">
+This was done because it is unlikely that the code needed to perform this 
+operation will need to change from one algorithm to the next. As a result, most 
+of the code that is likely to change from one algorithm to the next is confined 
+to the method named 
+
+<emphasis id="strong1009" effect="bold">
+processPixels
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1035">
+The method named 
+
+<emphasis id="strong1010" effect="bold">
+setOutputPixelColor
+
+</emphasis>
+ is called in 
+
+
+<link id="a1043" target-id="Listing_6">
+
+Listing 6
+
+</link>
+
+, 
+which also signals the end of the 
+
+<emphasis id="strong1011" effect="bold">
+processPixels
+
+</emphasis>
+ method
+
+</para>
+
+
+
+
+
+	
+
+<figure id="figure1007" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_6" effect="bold">
+</emphasis>
+Listing 6. Store modified  				pixel color in the output pixel array.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1005" display="block">
+      setOutputPixelColor(cnt,colr);
+    }//end for loop
+    updatePixels();//required
+  }//end processPixels
+</code>
+
+
+
+				
+
+<caption>Listing 6. Store modified  				pixel color in the output pixel array.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+	
+
+</section>
+<section id="h31011">
+<title>
+<emphasis id="The_setOutputPixelColor_method" effect="bold">
+
+The setOutputPixelColor method
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+
+
+<para id="p1036">
+The 
+
+<emphasis id="strong1012" effect="bold">
+setOutputPixelColor
+
+</emphasis>
+ method is shown in
+
+
+<link id="a1044" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+. The code in that method is the same as 
+code that I have explained in earlier modules, so I won't repeat that 
+explanation here.
+
+</para>
+
+
+
+
+</section>
+<section id="h31012">
+<title>
+<emphasis id="The_remainder_of_the_Pr0140aRunner_class" effect="bold">
+
+The remainder of the 
+Pr0140aRunner class
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1037">
+The remainder of the 
+
+<emphasis id="strong1013" effect="bold">
+Pr0140aRunner
+
+</emphasis>
+ class shown in
+
+
+<link id="a1045" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ is the same as code 
+that I have explained in earlier modules. Therefore, there is nothing more to 
+explain in this module.
+
+</para>
+
+
+
+
+
+
+</section>
+</section>
+</section>
+<section id="h11004">
+<title>
+<emphasis id="Run_the_program" effect="bold">
+
+Run the sketch
+
+</emphasis>
+
+
+</title>
+
+
+
+
+
+
+<para id="p1038">
+I encourage you to copy the code from 
+
+<link id="a1046" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ 
+and 
+
+<link id="a1047" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+ and paste it into your PDE. Be sure to 
+put the code from 
+
+<link id="a1048" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ in the leftmost tab.
+
+</para>
+
+
+
+
+<para id="p1039">
+Don't forget to put an image file of your choice in a folder named 
+
+<emphasis id="strong1014" effect="bold">
+
+data
+
+</emphasis>
+ that is a child of the folder that contains the files with the 
+.pde extension. You will need to edit the code to change the name of the image file in 
+
+<emphasis id="em1005" effect="italics">
+
+two different places
+
+</emphasis>
+.
+
+</para>
+
+
+
+
+<para id="p1040">
+Run the sketch 
+and observe the results. Experiment with the code. Make changes, run the sketch again, and observe the results of your changes. Make certain that you 
+can explain why your changes behave as they do.
+
+</para>
+
+
+
+
+<para id="p1041">
+Don't forget to also create and run the JavaScript version of your sketch in 
+your HTML 5 compatible browser.
+
+</para>
+
+
+
+
+<para id="p1042">
+Click 
+
+<link id="a1049" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch discussed in this module in your HTML 5 compatible browser. 
+
+</para>
+
+
+
+
+<para id="p1043">
+If you have a programmable Android device
+
+<emphasis id="em1006" effect="italics">
+, 
+
+</emphasis>
+try creating and running the Android version of your sketch in your 
+Android device.
+
+</para>
+
+
+
+
+<para id="p1044">
+Also try creating and running the stand-alone version of the sketch by 
+selecting 
+
+<emphasis id="strong1015" effect="bold">
+Export Application
+
+</emphasis>
+ from the 
+
+<emphasis id="strong1016" effect="bold">
+File
+
+</emphasis>
+ 
+menu while in 
+
+<emphasis id="strong1017" effect="bold">
+Java
+
+</emphasis>
+ mode.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11005">
+<title>
+<emphasis id="Summary" effect="bold">
+
+Summary
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1045">
+In this module, you learned:
+
+</para>
+
+
+
+
+<list id="ol1001" list-type="enumerated">
+
+	
+
+<item id="li1033">
+How to develop a template sketch for implementing pixel modification 
+	algorithms, and
+
+</item>
+
+
+	
+
+<item id="li1034">
+How to implement a space-wise linear pixel modification algorithm.
+
+</item>
+
+
+
+
+</list>
+
+
+
+
+<para id="p1046">
+Click 
+
+<link id="a1050" url="index.html">
+
+here
+
+</link>
+
+ to view the JavaScript version of the 
+sketch discussed in this module in your HTML 5 compatible browser.
+
+</para>
+
+
+	
+
+</section>
+<section id="h11006">
+<title>
+<emphasis id="Miscellaneous" effect="bold">
+
+Miscellaneous
+
+</emphasis>
+
+
+</title>
+
+
+	
+
+<para id="p1047">
+This section contains a variety of miscellaneous information.
+
+</para>
+
+
+
+
+
+	
+
+<note id="note1000" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1018" effect="bold">
+Housekeeping material
+
+</emphasis>
+
+				
+
+<list id="ul1009" list-type="bulleted">
+
+					
+
+<item id="li1035">
+Module name: Pr0140-A space-wise linear 
+					pixel-modification algorithm
+
+</item>
+
+
+					
+
+<item id="li1036">
+File: Pr0140.htm
+
+
+</item>
+
+
+					
+
+<item id="li1037">
+Published: 02/26/13
+
+</item>
+
+
+				
+
+</list>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+	
+
+<note id="note1001" type="miscellaneous">
+
+
+		
+
+
+			
+
+
+				
+
+<emphasis id="strong1019" effect="bold">
+Disclaimers:
+
+</emphasis>
+<para id="p1048">
+<emphasis id="strong1020" effect="bold">
+Financial
+
+</emphasis>
+: Although the Connexions
+site makes it possible for you to download a PDF file for this
+module at no charge, and also makes it possible for you to
+purchase a pre-printed version of the PDF file, you should be
+aware that some of the HTML elements in this module may not translate well into
+PDF.
+
+</para>
+
+
+				
+
+<para id="p1049">
+I also want you to know that, I receive no financial compensation from the Connexions website even if you purchase 
+	the PDF version of the module.
+
+</para>
+
+
+				
+
+<para id="p1050">
+In the past, unknown individuals have copied my modules from cnx.org, converted them to Kindle books, and 
+				placed them for sale on Amazon.com showing me as the author. I 
+				neither receive compensation for those sales nor do I know who does 
+				receive compensation. If you purchase such a book, please be 
+				aware that it is a copy of a module that is freely 
+				available on cnx.org and that it was made and published without 
+				my prior knowledge.
+
+</para>
+
+
+				
+
+<para id="p1051">
+<emphasis id="strong1021" effect="bold">
+Affiliation
+
+</emphasis>
+: I am a professor of Computer Information 
+	Technology at Austin Community College in Austin, TX.
+	
+
+</para>
+
+
+				
+
+</note>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+</section>
+<section id="h11007">
+<title>
+<emphasis id="Complete_program_listing" effect="bold">
+
+Complete program listing
+
+</emphasis>
+
+
+</title>
+
+
+
+
+<para id="p1052">
+Complete listings of the classes discussed in this module are provided in
+
+
+<link id="a1051" target-id="Listing_7">
+
+Listing 7
+
+</link>
+
+ and 
+
+<link id="a1052" target-id="Listing_8">
+
+Listing 8
+
+</link>
+
+.
+
+</para>
+
+
+
+
+	
+
+<figure id="figure1008" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_7" effect="bold">
+</emphasis>
+Listing 7. Pr0140a.pde.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1006" display="block">
+/*Pr0140a.pde
+Copyright 2013, R.G.Baldwin
+
+This sketch can be used as a template for writing other 
+pixel modification algorithms.
+
+The sketch illustrates a linear space wise pixel 
+modification algorithm in which the green and blue pixel 
+color values are scaled linearly as a function of the 
+distance of the pixel from the left side of the image.
+
+The output is displayed in an image explorer. 
+
+The image explorer displays the coordinates of the mouse 
+pointer along with the RGB color values of the pixel at 
+the mouse pointer. It also displays the width and height 
+of the image.
+
+The image explorer displays an error message in place of 
+the image if the image is wider or taller than the output 
+display window.
+**********************************************************/
+//@pjs preload required for JavaScript version in browser.
+/* @pjs preload="Pr0140a.jpg"; */
+
+PImage img;
+PFont font;
+
+Pr0140aRunner obj;
+void setup(){
+  //This size matches the width of the image and allows
+  // space below the image to display the text information.
+  size(365,344);
+  frameRate(30);
+  img = loadImage("Pr0140a.jpg");
+  obj = new Pr0140aRunner();
+  font = createFont("Arial",16,true);
+}//end setup
+//-------------------------------------------------------//
+void draw(){
+  obj.run();
+}//end draw
+</code>
+
+
+
+				
+
+<caption>Listing 7. Pr0140a.pde.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+
+<figure id="figure1009" type="figure">
+<label>Figure</label>
+
+
+		
+
+
+			
+
+
+				
+
+<title>
+<emphasis id="Listing_8" effect="bold">
+</emphasis>
+Listing 8. Pr0140aRunner.pde.
+</title>
+
+			
+
+
+		
+
+
+
+		
+
+
+			
+
+
+				
+
+
+
+
+<code id="pre1007" display="block">
+class Pr0140aRunner{
+  //The following instance variable is used to set the
+  // color of the appropriate pixel in the output display
+  // window.
+  int ctr = 0;//output pixel array counter
+  
+  void run(){
+    background(255);//white
+    textFont(font,16);//Set the font size
+    fill(255,0,0);//Set the text color to red
+    
+    //Display error message in place of image if the 
+    // image won't fit in the display window.    
+    if(img.width &gt; width){
+      text("--Image too wide--",10,20);
+      text("Image width: " + img.width,10,40);
+      text("Display width: " + width,10,60);
+    }else if(img.height &gt; height){
+      text("--Image too tall--",10,20);
+      text("Image height: " + img.height,10,40);
+      text("Display height: " + height,10,60);
+    }else{
+      //The image will fit in the output window.
+      
+      //Call a method that will apply a specific 
+      // pixel-modification algorithm and write the
+      // modified pixel colors into the output window. 
+      processPixels();
+    }//end else
+    
+    //Display the author's name on the output in the font
+    // size and text color defined above.
+    text("Dick Baldwin",10,20);
+    
+    //Display information about the pixel being pointed
+    // to with the mouse. Display near the bottom of the 
+    // output window.
+    displayPixelInfo(img);
+  }//end run
+  //-----------------------------------------------------//
+  
+  //Apply a pixel modification algorithm that causes the 
+  // green and blue color values to be scaled on a linear
+  // basis moving from left to right across the image. 
+  void processPixels(){
+    loadPixels();//required
+    img.loadPixels();//required
+    float reD,greeN,bluE;//store color values here
+    ctr = 0;//initialize output pixel array counter
+    
+    //Process each pixel in the input image.
+    for(int cnt = 0;cnt &lt; img.pixels.length;cnt++){
+      //Get and save RGB color values for current pixel.
+      reD = red(img.pixels[cnt]);
+      greeN = green(img.pixels[cnt]);
+      bluE = blue(img.pixels[cnt]);
+
+      //Compute the column number and use it to compute
+      // the linear scale factors that will be applied to
+      // the green and blue color values.
+      int col = cnt%img.width;
+      float greenScale = (float)(width - col)/width;
+      float blueScale = (float)(col)/width;
+      
+      //Compute a new color based on scaled versions of
+      // the input color values. Don't modify the red
+      // color value.
+      color colr = 
+              color(reD, greenScale*greeN, blueScale*bluE);
+      //Enable the following statement to override the
+      // color modification and display the raw image in 
+      // the output window. Disable it to display the 
+      // modified image.
+      //colr = color(reD, greeN, bluE);
+      
+      //Store the modified pixel color in the output pixel
+      // array.
+      setOutputPixelColor(cnt,colr);
+    }//end for loop
+    updatePixels();//required
+  }//end processPixels
+  //-----------------------------------------------------//
+  
+  //Method to set the color of a pixel in the output image
+  // based on the input pixel counter, the output pixel
+  // counter, the widths of the input and output images, 
+  // and the desired color. Deals with the possibility that
+  // the output display window is wider than the image being
+  // processed.
+  void setOutputPixelColor(int cnt,color colr){
+    if(width &gt;= img.width){
+      if((cnt % img.width == 0) &amp;&amp; (cnt != 0)){
+        //Compensate for excess display width by
+        // increasing the output counter.
+        ctr += (width - img.width);
+      }//end if
+      //Store the pixel in the output pixel array
+      // and increment the output pixel counter.
+      pixels[ctr] = colr;
+      ctr++;
+    }//end if
+  }//end setOutputPixelColor
+
+  //-----------------------------------------------------//
+  //Method to display coordinate and pixel color info at
+  // the current mouse pointer location. Also displays 
+  // width and height information about the image.
+  void displayPixelInfo(PImage image){
+    //Protect against mouse being outside the frame
+    if((mouseX &lt; width) &amp;&amp; (mouseY &lt; height) &amp;&amp; 
+       (mouseX &gt;= 0) &amp;&amp; (mouseY &gt;= 0)){
+      
+      //Get and display the width and height of the
+      // image.
+      text("Width: " + image.width + "  Height: " + 
+                       image.height,10,height - 50);
+      
+      //Get and display coordinates of mouse pointer.
+      text("X: " + mouseX + ",  Y: " + mouseY,10,
+                                       height - 30);
+ 
+      //Get and display color data for the pixel at the
+      // mouse pointer.
+      text("R: " + red(pixels[mouseY*width+mouseX]) +
+           "  G: " + green(pixels[mouseY*width+mouseX]) +
+           "  B: " + blue(pixels[mouseY*width+mouseX]),
+                                    10,height - 10);
+    }//end if
+  }//end displayPixelInfo
+}//end class Pr0140aRunner
+</code>
+
+
+
+				
+
+<caption>Listing 8. Pr0140aRunner.pde.</caption>
+</figure>
+
+			
+
+
+		
+
+
+
+	
+
+
+
+
+
+
+
+<para id="p1053">
+-end- 
+
+</para>
+
+
+
+
+
+
+</section>
+</content>
+
+
+
+
+</document>
